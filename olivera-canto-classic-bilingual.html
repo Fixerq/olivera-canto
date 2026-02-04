@@ -247,6 +247,21 @@
         }
         .story-feature::before { content: '\2022 '; color: var(--terracotta); font-weight: 700; }
 
+        /* ── VIDEO ── */
+        .video { background: var(--navy); }
+        .video-wrapper {
+            position: relative; max-width: 900px; margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border: 4px solid rgba(255,255,255,.1);
+            box-shadow: 0 12px 50px rgba(0,0,0,.3);
+        }
+        .video-wrapper iframe {
+            position: absolute; inset: 0;
+            width: 100%; height: 100%; border: none;
+        }
+        .video .section-label { color: var(--gold); }
+        .video .section-title { color: var(--white); }
+
         /* ── GALLERY ── */
         .gallery { background: var(--bg-secondary); }
         .masonry {
@@ -609,6 +624,19 @@
                     <span class="story-feature"><span class="lang-en">Solar Outdoor Shower</span><span class="lang-de">Solar-Au&szlig;endusche</span></span>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ VIDEO ═══ -->
+<section class="video" id="video">
+    <div class="container">
+        <div style="text-align:center;" class="fade-in">
+            <p class="section-label"><span class="lang-en">Virtual Tour</span><span class="lang-de">Virtuelle Tour</span></p>
+            <h2 class="section-title"><span class="lang-en">Experience Olivera Canto</span><span class="lang-de">Erleben Sie Olivera Canto</span></h2>
+        </div>
+        <div class="video-wrapper fade-in">
+            <iframe src="https://drive.google.com/file/d/10YRdmmLCfpIdg-_5PmeDundBiVyt_cYI/preview" allow="autoplay" allowfullscreen loading="lazy"></iframe>
         </div>
     </div>
 </section>
