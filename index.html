@@ -372,6 +372,19 @@
             font-size: .72rem; font-weight: 500; letter-spacing: .1em;
             color: var(--terracotta); text-transform: uppercase;
         }
+        .area-photos {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+            margin-top: 3rem;
+        }
+        .area-photos img {
+            width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: 4px;
+            transition: transform .4s, box-shadow .4s;
+        }
+        .area-photos img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(0,0,0,.15);
+        }
 
         /* ── RATES ── */
         .rates { background: var(--bg-secondary); }
@@ -566,6 +579,7 @@
             .btn-outline { margin-left: 0; }
             .masonry { columns: 1; }
             .tab-grid { grid-template-columns: 1fr; }
+            .area-photos { grid-template-columns: repeat(2, 1fr); }
             .reviews-grid { grid-template-columns: 1fr; }
             .contact-form { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -860,6 +874,15 @@
                     <span class="dist-tag"><span class="lang-en">Nearby</span><span class="lang-de">In der N&auml;he</span></span>
                 </div>
             </div>
+        </div>
+
+        <div class="area-photos fade-in">
+            <img src="images/portocolom-bay.jpg" alt="Portocolom natural harbour bay" loading="lazy">
+            <img src="images/cala-marcal.jpg" alt="Cala Marçal beach" loading="lazy">
+            <img src="images/portocolom-lighthouse.jpg" alt="Portocolom lighthouse" loading="lazy">
+            <img src="images/portocolom-boats.jpg" alt="Fishing boats in Portocolom harbour" loading="lazy">
+            <img src="images/portocolom-town.jpg" alt="Portocolom town waterfront" loading="lazy">
+            <img src="images/sarenal-beach.jpg" alt="S'Arenal beach near Portocolom" loading="lazy">
         </div>
     </div>
 </section>
