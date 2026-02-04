@@ -691,7 +691,7 @@
             <p class="section-label"><span class="lang-en">Virtual Tour</span><span class="lang-de">Virtuelle Tour</span></p>
             <h2 class="section-title"><span class="lang-en">Experience Olivera Canto</span><span class="lang-de">Erleben Sie Olivera Canto</span></h2>
         </div>
-        <div class="video-wrapper fade-in" id="videoWrapper" onclick="(function(w){w.classList.add('playing');var f=w.querySelector('iframe');if(!f.src){f.src=f.dataset.src+'&autoplay=1';}else{f.src=f.src.replace('/preview','/preview')+'';}})(this)">
+        <div class="video-wrapper fade-in" id="videoWrapper" onclick="(function(w){w.classList.add('playing');var f=w.querySelector('iframe');if(!f.src||!f.src.includes('drive.google')){f.src=f.dataset.src;}})(this)">
             <div class="video-poster">
                 <div class="poster-frame">
                     <div class="poster-title">Olivera<br>Canto</div>
