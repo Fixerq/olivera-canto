@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivera Canto | Luxury Villa in Portocolom, Mallorca</title>
+    <meta name="description" content="Exclusive 4-bedroom luxury villa with private pool and 360° rooftop terrace in Portocolom, Mallorca. ETV/12422">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #FAFAF8;
+            --bg-secondary: #F5F4F0;
+            --text-primary: #1A1A1A;
+            --text-secondary: #5A5A58;
+            --accent: #8B7355;
+            --accent-light: #a8916f;
+            --white: #FFFFFF;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 300;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 1.25rem 3rem;
+            display: flex; align-items: center; justify-content: space-between;
+            transition: background .4s, box-shadow .4s, padding .4s;
+        }
+        .nav.scrolled {
+            background: rgba(250,250,248,.97);
+            box-shadow: 0 1px 20px rgba(0,0,0,.06);
+            padding: .85rem 3rem;
+        }
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.6rem; font-weight: 500; letter-spacing: .04em;
+            color: var(--white);
+            text-decoration: none;
+            transition: color .4s;
+        }
+        .nav.scrolled .nav-logo { color: var(--text-primary); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-links a {
+            font-size: .82rem; font-weight: 400; letter-spacing: .08em; text-transform: uppercase;
+            color: rgba(255,255,255,.85); text-decoration: none;
+            transition: color .3s;
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav.scrolled .nav-links a { color: var(--text-secondary); }
+        .nav.scrolled .nav-links a:hover { color: var(--text-primary); }
+        .lang-toggle { display: flex; align-items: center; gap: .5rem; }
+        .lang-btn {
+            background: none; border: none; cursor: pointer;
+            font-family: var(--font-body); font-size: .78rem; font-weight: 400;
+            letter-spacing: .1em; color: rgba(255,255,255,.6);
+            transition: color .3s;
+        }
+        .lang-btn.active { color: var(--white); font-weight: 500; }
+        .nav.scrolled .lang-btn { color: var(--text-secondary); }
+        .nav.scrolled .lang-btn.active { color: var(--text-primary); }
+        .lang-toggle span { color: rgba(255,255,255,.3); font-size: .7rem; }
+        .nav.scrolled .lang-toggle span { color: #ccc; }
+        .nav-cta {
+            background: var(--accent); color: var(--white) !important;
+            padding: .55rem 1.4rem; border-radius: 2px;
+            font-size: .78rem !important; letter-spacing: .1em !important;
+            transition: background .3s, color .3s !important;
+        }
+        .nav-cta:hover { background: var(--accent-light); color: var(--white) !important; }
+
+        /* Mobile nav */
+        .nav-hamburger {
+            display: none; background: none; border: none; cursor: pointer;
+            flex-direction: column; gap: 5px; padding: 4px;
+        }
+        .nav-hamburger span {
+            display: block; width: 24px; height: 2px; background: var(--white);
+            transition: background .4s, transform .3s;
+        }
+        .nav.scrolled .nav-hamburger span { background: var(--text-primary); }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative; height: 100vh; min-height: 600px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80') center/cover no-repeat;
+        }
+        .hero-bg::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.5) 100%);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 2rem; }
+        .hero-sub {
+            font-family: var(--font-body); font-size: .85rem; font-weight: 400;
+            letter-spacing: .25em; text-transform: uppercase; margin-bottom: 1.2rem;
+            opacity: .85;
+        }
+        .hero h1 {
+            font-family: var(--font-heading); font-weight: 300;
+            font-size: clamp(2.4rem, 5vw, 4rem); line-height: 1.15;
+            margin-bottom: .8rem;
+        }
+        .hero-tagline {
+            font-family: var(--font-heading); font-style: italic; font-weight: 300;
+            font-size: 1.15rem; opacity: .8; margin-bottom: 2.5rem;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent); color: var(--white);
+            padding: .85rem 2.4rem;
+            font-family: var(--font-body); font-size: .8rem; font-weight: 400;
+            letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
+            border: none; cursor: pointer; transition: background .3s;
+        }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,.5); color: var(--white);
+            padding: .85rem 2.4rem; margin-left: 1rem;
+            font-family: var(--font-body); font-size: .8rem; font-weight: 400;
+            letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
+            transition: background .3s, border-color .3s;
+        }
+        .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+        .hero-scroll {
+            position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+            z-index: 2;
+        }
+        .hero-scroll span {
+            display: block; width: 1px; height: 50px; background: rgba(255,255,255,.4);
+            margin: 0 auto .5rem;
+            animation: scrollPulse 2s infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: .3; } 50% { opacity: 1; }
+        }
+
+        /* ── SECTIONS ── */
+        section { padding: 6rem 3rem; }
+        .section-label {
+            font-family: var(--font-body); font-size: .72rem; font-weight: 500;
+            letter-spacing: .2em; text-transform: uppercase; color: var(--accent);
+            margin-bottom: .8rem;
+        }
+        .section-title {
+            font-family: var(--font-heading); font-weight: 300;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1.2;
+            margin-bottom: 1.5rem; color: var(--text-primary);
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ── INTRO ── */
+        .intro { background: var(--bg-primary); }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .intro-text p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: .95rem; }
+        .intro-features {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+        }
+        .intro-feature {
+            display: flex; align-items: center; gap: .6rem;
+            font-size: .85rem; color: var(--text-secondary);
+        }
+        .intro-feature .icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--bg-secondary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .9rem; flex-shrink: 0;
+        }
+        .intro-img {
+            width: 100%; height: 500px; object-fit: cover;
+            border-radius: 2px;
+        }
+
+        /* ── ROOFTOP BANNER ── */
+        .rooftop-banner {
+            background: var(--text-primary); color: var(--white);
+            padding: 5rem 3rem; text-align: center;
+        }
+        .rooftop-banner .section-label { color: var(--accent-light); }
+        .rooftop-banner .section-title { color: var(--white); }
+        .rooftop-banner p {
+            max-width: 650px; margin: 0 auto; font-size: .95rem;
+            color: rgba(255,255,255,.7); line-height: 1.8;
+        }
+
+        /* ── GALLERY ── */
+        .gallery { background: var(--bg-secondary); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: .75rem;
+        }
+        .gallery-grid .featured {
+            grid-column: 1 / 3; grid-row: 1 / 3;
+        }
+        .gallery-img {
+            width: 100%; height: 100%; min-height: 220px; object-fit: cover;
+            border-radius: 2px;
+            transition: transform .5s;
+        }
+        .gallery-item { overflow: hidden; border-radius: 2px; }
+        .gallery-item:hover .gallery-img { transform: scale(1.03); }
+        .gallery-grid .featured .gallery-img { min-height: 460px; }
+
+        /* ── AREA ── */
+        .area { background: var(--bg-primary); }
+        .area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3rem; }
+        .area-card {
+            background: var(--white); padding: 2.5rem 2rem; border-radius: 2px;
+            border: 1px solid #eee;
+        }
+        .area-card-icon {
+            font-size: 1.6rem; margin-bottom: 1rem;
+        }
+        .area-card h3 {
+            font-family: var(--font-heading); font-size: 1.3rem; font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        .area-card ul { list-style: none; }
+        .area-card li {
+            font-size: .88rem; color: var(--text-secondary);
+            padding: .45rem 0; border-bottom: 1px solid #f0f0ee;
+        }
+        .area-card li:last-child { border-bottom: none; }
+        .area-card li .dist {
+            float: right; color: var(--accent); font-weight: 400; font-size: .82rem;
+        }
+
+        /* ── RATES ── */
+        .rates { background: var(--text-primary); color: var(--white); }
+        .rates .section-label { color: var(--accent-light); }
+        .rates .section-title { color: var(--white); }
+        .rates-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .rate-card {
+            background: rgba(255,255,255,.06); padding: 2rem 1.5rem;
+            border-radius: 2px; text-align: center;
+            border: 1px solid rgba(255,255,255,.08);
+            transition: border-color .3s;
+        }
+        .rate-card:hover { border-color: var(--accent); }
+        .rate-card .season {
+            font-size: .75rem; font-weight: 500; letter-spacing: .15em;
+            text-transform: uppercase; color: rgba(255,255,255,.5);
+            margin-bottom: .3rem;
+        }
+        .rate-card .months {
+            font-size: .78rem; color: rgba(255,255,255,.35); margin-bottom: 1.2rem;
+        }
+        .rate-card .price {
+            font-family: var(--font-heading); font-size: 2.2rem; font-weight: 300;
+            color: var(--white);
+        }
+        .rate-card .per-night {
+            font-size: .75rem; color: rgba(255,255,255,.4); margin-top: .2rem;
+        }
+        .rates-info {
+            margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+        }
+        .rates-info h4 {
+            font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500;
+            margin-bottom: 1rem; color: var(--white);
+        }
+        .rates-info li {
+            list-style: none; font-size: .85rem; color: rgba(255,255,255,.55);
+            padding: .35rem 0;
+        }
+        .rates-info li::before { content: '+ '; color: var(--accent-light); }
+
+        /* ── REVIEWS ── */
+        .reviews { background: var(--bg-secondary); }
+        .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+        .review-card {
+            background: var(--white); padding: 2.5rem; border-radius: 2px;
+            border: 1px solid #eee;
+        }
+        .review-stars { color: var(--accent); font-size: 1rem; letter-spacing: .15em; margin-bottom: 1rem; }
+        .review-text {
+            font-size: .92rem; color: var(--text-secondary); line-height: 1.8;
+            margin-bottom: 1.5rem; font-style: italic;
+        }
+        .review-author {
+            font-family: var(--font-heading); font-size: 1.05rem; font-weight: 500;
+            color: var(--text-primary);
+        }
+        .review-date { font-size: .78rem; color: var(--text-secondary); }
+        .reviews-overall {
+            text-align: center; margin-top: 3rem;
+            font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-secondary);
+        }
+        .reviews-overall strong {
+            font-size: 2rem; color: var(--accent); font-weight: 500;
+            display: block; margin-bottom: .3rem;
+        }
+
+        /* ── CONTACT ── */
+        .contact { background: var(--bg-primary); }
+        .contact-grid { display: grid; grid-template-columns: 1fr; max-width: 680px; margin: 0 auto; }
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label {
+            font-size: .75rem; font-weight: 500; letter-spacing: .1em;
+            text-transform: uppercase; color: var(--text-secondary);
+            margin-bottom: .4rem;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            font-family: var(--font-body); font-size: .9rem; font-weight: 300;
+            padding: .85rem 1rem; border: 1px solid #ddd; border-radius: 2px;
+            background: var(--white); color: var(--text-primary);
+            transition: border-color .3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--accent);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .contact-note {
+            grid-column: 1 / -1;
+            font-size: .8rem; color: var(--text-secondary); margin-top: .5rem;
+        }
+        .form-submit {
+            grid-column: 1 / -1; text-align: center; margin-top: 1rem;
+        }
+        .form-submit .btn-primary { border: none; cursor: pointer; }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: var(--text-primary); color: rgba(255,255,255,.5);
+            padding: 4rem 3rem 2rem;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; max-width: 1200px; margin: 0 auto;
+        }
+        .footer-brand {
+            font-family: var(--font-heading); font-size: 1.5rem; font-weight: 500;
+            color: var(--white); margin-bottom: .5rem;
+        }
+        .footer-brand-sub { font-size: .82rem; color: rgba(255,255,255,.35); margin-bottom: 1rem; }
+        .footer h4 {
+            font-family: var(--font-heading); font-size: 1rem; font-weight: 500;
+            color: rgba(255,255,255,.7); margin-bottom: 1rem;
+            letter-spacing: .05em;
+        }
+        .footer ul { list-style: none; }
+        .footer li { padding: .25rem 0; }
+        .footer a {
+            color: rgba(255,255,255,.4); text-decoration: none; font-size: .85rem;
+            transition: color .3s;
+        }
+        .footer a:hover { color: var(--white); }
+        .footer-bottom {
+            max-width: 1200px; margin: 3rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,.08);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: .78rem; color: rgba(255,255,255,.3);
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-in {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity .8s ease-out, transform .8s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            section { padding: 4rem 2rem; }
+            .nav { padding: 1rem 2rem; }
+            .nav.scrolled { padding: .75rem 2rem; }
+            .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .intro-img { height: 350px; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-grid .featured { grid-column: 1 / -1; grid-row: auto; }
+            .gallery-grid .featured .gallery-img { min-height: 300px; }
+            .area-grid { grid-template-columns: 1fr; }
+            .rates-grid { grid-template-columns: 1fr 1fr; }
+            .rates-info { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--white); padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,.1);
+            }
+            .nav-links.open a { color: var(--text-primary) !important; }
+            .nav-links.open .lang-btn { color: var(--text-secondary) !important; }
+            .nav-links.open .lang-btn.active { color: var(--text-primary) !important; }
+            .nav-links.open .lang-toggle span { color: #ccc !important; }
+            .hero h1 { font-size: 2rem; }
+            .hero-btns { display: flex; flex-direction: column; gap: .8rem; align-items: center; }
+            .btn-outline { margin-left: 0; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .rates-grid { grid-template-columns: 1fr; }
+            .contact-form { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
+            .intro-features { grid-template-columns: 1fr; }
+        }
+
+        /* Language visibility */
+        .lang-de { display: none; }
+        body.de .lang-de { display: inline; }
+        body.de .lang-en { display: none; }
+        body.de span.lang-de, body.de div.lang-de, body.de p.lang-de, body.de li.lang-de, body.de h1.lang-de, body.de h2.lang-de, body.de h3.lang-de, body.de option.lang-de { display: block; }
+        body.de span.lang-en, body.de div.lang-en, body.de p.lang-en, body.de li.lang-en, body.de h1.lang-en, body.de h2.lang-en, body.de h3.lang-en, body.de option.lang-en { display: none; }
+        body.de .lang-de.inline, .lang-en.inline { display: inline; }
+        body.de .lang-en.inline { display: none; }
+
+        /* Fix for flex/grid children */
+        .intro-feature .lang-de, .area-card li .lang-de, .rates-info li .lang-de,
+        .rate-card .lang-de, .footer li .lang-de { display: none; }
+        body.de .intro-feature .lang-de, body.de .area-card li .lang-de,
+        body.de .rates-info li .lang-de, body.de .rate-card .lang-de,
+        body.de .footer li .lang-de { display: inline; }
+        body.de .intro-feature .lang-en, body.de .area-card li .lang-en,
+        body.de .rates-info li .lang-en, body.de .rate-card .lang-en,
+        body.de .footer li .lang-en { display: none; }
+    </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav class="nav" id="nav">
+    <a href="#" class="nav-logo">Olivera Canto</a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#villa"><span class="lang-en">The Villa</span><span class="lang-de">Die Villa</span></a></li>
+        <li><a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-de">Galerie</span></a></li>
+        <li><a href="#area"><span class="lang-en">Area</span><span class="lang-de">Umgebung</span></a></li>
+        <li><a href="#rates"><span class="lang-en">Rates</span><span class="lang-de">Preise</span></a></li>
+        <li><a href="#reviews"><span class="lang-en">Reviews</span><span class="lang-de">Bewertungen</span></a></li>
+        <li><a href="#contact" class="nav-cta"><span class="lang-en">Enquire Now</span><span class="lang-de">Jetzt Anfragen</span></a></li>
+        <li>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span>|</span>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+        </li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content fade-in">
+        <p class="hero-sub">Portocolom &middot; Mallorca</p>
+        <h1 class="lang-en">An Exclusive<br>Mediterranean Retreat</h1>
+        <h1 class="lang-de">Ein Exklusives<br>Mediterranes Refugium</h1>
+        <p class="hero-tagline lang-en">Where the ancient olive meets the endless blue</p>
+        <p class="hero-tagline lang-de">Wo der alte Olivenbaum auf das endlose Blau trifft</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn-primary"><span class="lang-en">Book Your Stay</span><span class="lang-de">Jetzt Buchen</span></a>
+            <a href="#villa" class="btn-outline"><span class="lang-en">View the Villa</span><span class="lang-de">Villa Ansehen</span></a>
+        </div>
+    </div>
+    <div class="hero-scroll"><span></span></div>
+</section>
+
+<!-- ═══ INTRO / THE VILLA ═══ -->
+<section class="intro" id="villa">
+    <div class="container">
+        <div class="intro-grid">
+            <div class="intro-text fade-in">
+                <p class="section-label"><span class="lang-en">The Villa</span><span class="lang-de">Die Villa</span></p>
+                <h2 class="section-title">Olivera Canto</h2>
+                <p class="lang-en">Villa Olivera Canto impresses with its privileged location, stunning views and high-quality finishes in a favoured area of Portocolom. Recently remodelled in contemporary design, it seamlessly combines modern comfort with Mediterranean soul. Named after the ancient olive tree that graces our garden, the villa offers 240m&sup2; of elegant living space across two floors, crowned by an extraordinary rooftop terrace with 360&deg; panoramic views of the sea, the mountains, and the charming rooftops of Portocolom below.</p>
+                <p class="lang-de">Villa Olivera Canto beeindruckt durch ihre privilegierte Lage, atemberaubende Ausblicke und hochwertige Ausstattung in einer bevorzugten Gegend von Portocolom. K&uuml;rzlich im zeitgen&ouml;ssischen Design umgestaltet, verbindet sie modernen Komfort nahtlos mit mediterraner Seele. Benannt nach dem alten Olivenbaum in unserem Garten, bietet die Villa 240m&sup2; eleganten Wohnraum auf zwei Etagen, gekr&ouml;nt von einer au&szlig;ergew&ouml;hnlichen Dachterrasse mit 360&deg; Panoramablick auf das Meer, die Berge und die charmanten D&auml;cher von Portocolom.</p>
+                <div class="intro-features">
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">4 Bedrooms</span><span class="lang-de">4 Schlafzimmer</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">4 Bathrooms</span><span class="lang-de">4 Badezimmer</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">Max 8 Guests</span><span class="lang-de">Max. 8 G&auml;ste</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">240 m&sup2;</span><span class="lang-de">240 m&sup2;</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">Private Pool</span><span class="lang-de">Privater Pool</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">Air Conditioning</span><span class="lang-de">Klimaanlage</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">Free WiFi</span><span class="lang-de">Kostenloses WLAN</span></span>
+                    </div>
+                    <div class="intro-feature">
+                        <div class="icon">&#9711;</div>
+                        <span><span class="lang-en">Fireplace</span><span class="lang-de">Kamin</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="fade-in">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Villa Olivera Canto exterior with pool" class="intro-img" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ ROOFTOP BANNER ═══ -->
+<section class="rooftop-banner">
+    <div class="container fade-in">
+        <p class="section-label"><span class="lang-en">The Highlight</span><span class="lang-de">Das Highlight</span></p>
+        <h2 class="section-title"><span class="lang-en">360&deg; Rooftop Terrace</span><span class="lang-de">360&deg; Dachterrasse</span></h2>
+        <p class="lang-en">Crown your days on our extraordinary rooftop terrace, complete with a full outdoor kitchen featuring gas BBQ, dishwasher and refrigerator. Watch the sun set over the Mediterranean while the mountains glow in the golden hour light&mdash;an experience that defines every stay at Olivera Canto.</p>
+        <p class="lang-de">Kr&ouml;nen Sie Ihre Tage auf unserer au&szlig;ergew&ouml;hnlichen Dachterrasse mit voll ausgestatteter Au&szlig;enk&uuml;che mit Gas-Grill, Geschirrsp&uuml;ler und K&uuml;hlschrank. Beobachten Sie den Sonnenuntergang &uuml;ber dem Mittelmeer, w&auml;hrend die Berge im goldenen Licht erstrahlen&mdash;ein Erlebnis, das jeden Aufenthalt in der Olivera Canto pr&auml;gt.</p>
+    </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <p class="section-label fade-in"><span class="lang-en">Gallery</span><span class="lang-de">Galerie</span></p>
+        <h2 class="section-title fade-in"><span class="lang-en">Discover the Spaces</span><span class="lang-de">Entdecken Sie die R&auml;ume</span></h2>
+        <div class="gallery-grid fade-in">
+            <div class="gallery-item featured">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80" alt="Villa pool and exterior" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&q=80" alt="Modern living room" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=600&q=80" alt="Bright bedroom" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Kitchen and dining" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Modern bathroom" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1574739782594-db4ead022697?w=600&q=80" alt="Outdoor terrace dining" class="gallery-img" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Mediterranean garden with olive tree" class="gallery-img" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ AREA GUIDE ═══ -->
+<section class="area" id="area">
+    <div class="container">
+        <div class="fade-in" style="text-align:center; margin-bottom:1rem;">
+            <p class="section-label"><span class="lang-en">Discover Portocolom</span><span class="lang-de">Entdecken Sie Portocolom</span></p>
+            <h2 class="section-title"><span class="lang-en">Your Mediterranean Neighbourhood</span><span class="lang-de">Ihre Mediterrane Nachbarschaft</span></h2>
+            <p style="max-width:600px;margin:0 auto;color:var(--text-secondary);font-size:.92rem;">
+                <span class="lang-en">Portocolom stands for the original Mallorca without having to forego the amenities of a modern holiday resort. The quiet coastal town with the largest natural harbour in Mallorca offers the perfect environment for a relaxing getaway.</span>
+                <span class="lang-de">Portocolom steht f&uuml;r das urspr&uuml;ngliche Mallorca, ohne auf die Annehmlichkeiten eines modernen Ferienortes verzichten zu m&uuml;ssen. Die ruhige K&uuml;stenstadt mit dem gr&ouml;&szlig;ten Naturhafen Mallorcas bietet die perfekte Umgebung f&uuml;r einen erholsamen Urlaub.</span>
+            </p>
+        </div>
+        <div class="area-grid">
+            <div class="area-card fade-in">
+                <div class="area-card-icon">&#127965;</div>
+                <h3><span class="lang-en">Beaches &amp; Coves</span><span class="lang-de">Str&auml;nde &amp; Buchten</span></h3>
+                <ul>
+                    <li>
+                        <span class="lang-en">Nearest Beach</span><span class="lang-de">N&auml;chster Strand</span>
+                        <span class="dist">1.9 km</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Cala Mar&ccedil;al &mdash; Blue Flag, family-friendly</span>
+                        <span class="lang-de">Cala Mar&ccedil;al &mdash; Blaue Flagge, familienfreundlich</span>
+                        <span class="dist">5 min</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Cala Sa Nau &mdash; Hidden turquoise cove</span>
+                        <span class="lang-de">Cala Sa Nau &mdash; Versteckte t&uuml;rkisfarbene Bucht</span>
+                        <span class="dist">15 min</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Mondrag&oacute; Natural Park</span>
+                        <span class="lang-de">Naturpark Mondrag&oacute;</span>
+                        <span class="dist">15 min</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="area-card fade-in">
+                <div class="area-card-icon">&#127860;</div>
+                <h3><span class="lang-en">Dining &amp; Village</span><span class="lang-de">Restaurants &amp; Dorf</span></h3>
+                <ul>
+                    <li>
+                        <span class="lang-en">Restaurants</span><span class="lang-de">Restaurants</span>
+                        <span class="dist">1 km</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Harbour &amp; Town Centre</span><span class="lang-de">Hafen &amp; Ortszentrum</span>
+                        <span class="dist">1 km</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Shops &amp; Pharmacy</span><span class="lang-de">Gesch&auml;fte &amp; Apotheke</span>
+                        <span class="dist">700 m</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Bus Stop</span><span class="lang-de">Bushaltestelle</span>
+                        <span class="dist">700 m</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="area-card fade-in">
+                <div class="area-card-icon">&#127947;</div>
+                <h3><span class="lang-en">Activities</span><span class="lang-de">Aktivit&auml;ten</span></h3>
+                <ul>
+                    <li>
+                        <span class="lang-en">Vall d'Or Golf (18 holes)</span><span class="lang-de">Vall d'Or Golf (18 L&ouml;cher)</span>
+                        <span class="dist">2 km</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Sailing &amp; Boat Trips</span><span class="lang-de">Segeln &amp; Bootsausfl&uuml;ge</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Diving &amp; Snorkelling</span><span class="lang-de">Tauchen &amp; Schnorcheln</span>
+                    </li>
+                    <li>
+                        <span class="lang-en">Wine Tasting &amp; Cycling</span><span class="lang-de">Weinverkostung &amp; Radfahren</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ RATES ═══ -->
+<section class="rates" id="rates">
+    <div class="container">
+        <div class="fade-in" style="text-align:center;">
+            <p class="section-label"><span class="lang-en">Rates &amp; Availability</span><span class="lang-de">Preise &amp; Verf&uuml;gbarkeit</span></p>
+            <h2 class="section-title"><span class="lang-en">Seasonal Rates</span><span class="lang-de">Saisonpreise</span></h2>
+        </div>
+        <div class="rates-grid fade-in">
+            <div class="rate-card">
+                <div class="season"><span class="lang-en">Low Season</span><span class="lang-de">Nebensaison</span></div>
+                <div class="months"><span class="lang-en">November &ndash; March</span><span class="lang-de">November &ndash; M&auml;rz</span></div>
+                <div class="price">&euro;200</div>
+                <div class="per-night"><span class="lang-en">per night</span><span class="lang-de">pro Nacht</span></div>
+            </div>
+            <div class="rate-card">
+                <div class="season"><span class="lang-en">Mid Season</span><span class="lang-de">Zwischensaison</span></div>
+                <div class="months"><span class="lang-en">April, May, October</span><span class="lang-de">April, Mai, Oktober</span></div>
+                <div class="price">&euro;280</div>
+                <div class="per-night"><span class="lang-en">per night</span><span class="lang-de">pro Nacht</span></div>
+            </div>
+            <div class="rate-card">
+                <div class="season"><span class="lang-en">High Season</span><span class="lang-de">Hauptsaison</span></div>
+                <div class="months"><span class="lang-en">June, September</span><span class="lang-de">Juni, September</span></div>
+                <div class="price">&euro;350</div>
+                <div class="per-night"><span class="lang-en">per night</span><span class="lang-de">pro Nacht</span></div>
+            </div>
+            <div class="rate-card">
+                <div class="season"><span class="lang-en">Peak Season</span><span class="lang-de">Hochsaison</span></div>
+                <div class="months"><span class="lang-en">July &ndash; August</span><span class="lang-de">Juli &ndash; August</span></div>
+                <div class="price">&euro;450</div>
+                <div class="per-night"><span class="lang-en">per night</span><span class="lang-de">pro Nacht</span></div>
+            </div>
+        </div>
+        <div class="rates-info fade-in">
+            <div>
+                <h4><span class="lang-en">Booking Terms</span><span class="lang-de">Buchungsbedingungen</span></h4>
+                <ul>
+                    <li><span class="lang-en">25% deposit at booking</span><span class="lang-de">25% Anzahlung bei Buchung</span></li>
+                    <li><span class="lang-en">Balance due 5 weeks before arrival</span><span class="lang-de">Restzahlung 5 Wochen vor Anreise</span></li>
+                    <li><span class="lang-en">&euro;500 security deposit (refundable)</span><span class="lang-de">&euro;500 Kaution (erstattbar)</span></li>
+                    <li><span class="lang-en">Check-in from 4:00 PM / Check-out by 10:00 AM</span><span class="lang-de">Check-in ab 16:00 Uhr / Check-out bis 10:00 Uhr</span></li>
+                </ul>
+            </div>
+            <div>
+                <h4><span class="lang-en">Every Stay Includes</span><span class="lang-de">Jeder Aufenthalt Beinhaltet</span></h4>
+                <ul>
+                    <li><span class="lang-en">Welcome orientation with local tips</span><span class="lang-de">Willkommenseinf&uuml;hrung mit lokalen Tipps</span></li>
+                    <li><span class="lang-en">Fresh linens and towels</span><span class="lang-de">Frische Bettw&auml;sche und Handt&uuml;cher</span></li>
+                    <li><span class="lang-en">Pool and garden maintenance</span><span class="lang-de">Pool- und Gartenpflege</span></li>
+                    <li><span class="lang-en">High-speed WiFi</span><span class="lang-de">Highspeed-WLAN</span></li>
+                    <li><span class="lang-en">Air conditioning throughout</span><span class="lang-de">Klimaanlage im gesamten Haus</span></li>
+                    <li><span class="lang-en">Full use of rooftop kitchen</span><span class="lang-de">Volle Nutzung der Dachterrassenk&uuml;che</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews" id="reviews">
+    <div class="container">
+        <div class="fade-in" style="text-align:center;">
+            <p class="section-label"><span class="lang-en">Guest Experiences</span><span class="lang-de">G&auml;steerfahrungen</span></p>
+            <h2 class="section-title"><span class="lang-en">Words from Our Guests</span><span class="lang-de">Stimmen Unserer G&auml;ste</span></h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card fade-in">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text lang-en">"Our stay in this holiday home was dreamlike. The Tillmann family were very friendly and welcomed us with useful tips. The house is modern, tasteful and equipped with everything you need for a relaxing holiday. A highlight was the rooftop terrace with a breathtaking panoramic view of the sea and mountains&mdash;the perfect place to end the day. The garden invites you to linger, and the pool was clean and refreshing. We will definitely be back!"</p>
+                <p class="review-text lang-de">"Unser Aufenthalt in diesem Ferienhaus war traumhaft. Familie Tillmann war sehr freundlich und haben uns mit n&uuml;tzlichen Tipps herzlich willkommen gehei&szlig;en. Das Haus ist modern, geschmackvoll und mit allem ausgestattet, was man f&uuml;r einen entspannten Urlaub braucht. Ein besonderes Highlight war die Dachterrasse mit einem atemberaubenden Rundumblick auf das Meer und die Berge - der perfekte Ort, um den Tag ausklingen zu lassen. Der Garten l&auml;dt zum Verweilen ein, und der Pool war sauber und erfrischend. Wir kommen definitiv wieder!"</p>
+                <div class="review-author"><span class="lang-en">Friends Radermacher</span><span class="lang-de">Freunde Radermacher</span></div>
+                <div class="review-date"><span class="lang-en">K&ouml;ln, October 2024</span><span class="lang-de">K&ouml;ln, Oktober 2024</span></div>
+            </div>
+            <div class="review-card fade-in">
+                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-text lang-en">"We had a perfect family holiday at Villa Olivera Canto. It has been furnished by the owners with a lot of love and very good taste. Everything is well maintained and very clean. We felt at home immediately. The villa is quiet yet not far from the beautiful natural harbour of Portocolom. We made extensive use of the large pool. The 360-degree rooftop terrace with views of the mountains and the sea is absolutely dreamlike. We are definitely coming back."</p>
+                <p class="review-text lang-de">"Wir hatten als Familie einen perfekten Urlaub in der Villa Olivera Canto. Sie ist von den Eigent&uuml;mern mit viel Liebe und sehr gutem Geschmack eingerichtet worden. Alles top gepflegt und sehr sauber. Wir haben uns direkt wohl gef&uuml;hlt. Die Villa liegt ruhig und ist doch nicht weit vom wundersch&ouml;nen Naturhafen von Portocolom entfernt. Der gro&szlig;e Pool wurde von uns ausgiebig genutzt. Absolut traumhaft ist die 360 Grad Dachterrasse mit Blick auf die Berge und das Meer. Wir kommen auf jeden Fall wieder."</p>
+                <div class="review-author">Familie J&uuml;nger</div>
+                <div class="review-date"><span class="lang-en">Trebur, August 2024</span><span class="lang-de">Trebur, August 2024</span></div>
+            </div>
+        </div>
+        <div class="reviews-overall fade-in">
+            <strong>4.83 / 5</strong>
+            <span class="lang-en">100% Recommendation</span>
+            <span class="lang-de">100% Weiterempfehlung</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="fade-in" style="text-align:center; margin-bottom:3rem;">
+            <p class="section-label"><span class="lang-en">Get in Touch</span><span class="lang-de">Kontaktieren Sie Uns</span></p>
+            <h2 class="section-title"><span class="lang-en">Make an Enquiry</span><span class="lang-de">Anfrage Senden</span></h2>
+        </div>
+        <div class="contact-grid">
+            <form class="contact-form fade-in" action="mailto:hello@olivera-canto.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name"><span class="lang-en">Full Name</span><span class="lang-de">Vollst&auml;ndiger Name</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span class="lang-en">Email Address</span><span class="lang-de">E-Mail-Adresse</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkin"><span class="lang-en">Check-in</span><span class="lang-de">Anreise</span></label>
+                    <input type="date" id="checkin" name="checkin">
+                </div>
+                <div class="form-group">
+                    <label for="checkout"><span class="lang-en">Check-out</span><span class="lang-de">Abreise</span></label>
+                    <input type="date" id="checkout" name="checkout">
+                </div>
+                <div class="form-group">
+                    <label for="guests"><span class="lang-en">Number of Guests</span><span class="lang-de">Anzahl der G&auml;ste</span></label>
+                    <select id="guests" name="guests">
+                        <option value="1">1</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone"><span class="lang-en">Phone</span><span class="lang-de">Telefon</span> <small>(<span class="lang-en">optional</span><span class="lang-de">optional</span>)</small></label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group full">
+                    <label for="message"><span class="lang-en">Your Message</span><span class="lang-de">Ihre Nachricht</span></label>
+                    <textarea id="message" name="message" placeholder="" rows="5"></textarea>
+                </div>
+                <p class="contact-note">
+                    <span class="lang-en">Please note: This is a non-smoking property and pets are not permitted.</span>
+                    <span class="lang-de">Bitte beachten Sie: Dies ist ein Nichtraucher-Objekt und Haustiere sind nicht gestattet.</span>
+                </p>
+                <div class="form-submit">
+                    <button type="submit" class="btn-primary"><span class="lang-en">Send Enquiry</span><span class="lang-de">Anfrage Senden</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">Olivera Canto</div>
+            <div class="footer-brand-sub">Portocolom, Mallorca</div>
+            <p style="font-size:.82rem;color:rgba(255,255,255,.35);line-height:1.7;">
+                <span class="lang-en">Your hosts: Sylvia &amp; Thomas Tillmann</span>
+                <span class="lang-de">Ihre Gastgeber: Sylvia &amp; Thomas Tillmann</span>
+            </p>
+        </div>
+        <div>
+            <h4><span class="lang-en">Property</span><span class="lang-de">Unterkunft</span></h4>
+            <ul>
+                <li><a href="#villa"><span class="lang-en">The Villa</span><span class="lang-de">Die Villa</span></a></li>
+                <li><a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-de">Galerie</span></a></li>
+                <li><a href="#rates"><span class="lang-en">Rates</span><span class="lang-de">Preise</span></a></li>
+            </ul>
+        </div>
+        <div>
+            <h4><span class="lang-en">Area</span><span class="lang-de">Umgebung</span></h4>
+            <ul>
+                <li><a href="#area"><span class="lang-en">Beaches &amp; Coves</span><span class="lang-de">Str&auml;nde &amp; Buchten</span></a></li>
+                <li><a href="#area"><span class="lang-en">Dining</span><span class="lang-de">Restaurants</span></a></li>
+                <li><a href="#area"><span class="lang-en">Activities</span><span class="lang-de">Aktivit&auml;ten</span></a></li>
+            </ul>
+        </div>
+        <div>
+            <h4><span class="lang-en">Contact</span><span class="lang-de">Kontakt</span></h4>
+            <ul>
+                <li><a href="mailto:hello@olivera-canto.com">hello@olivera-canto.com</a></li>
+                <li><a href="#contact"><span class="lang-en">Enquiry Form</span><span class="lang-de">Anfrageformular</span></a></li>
+                <li style="color:rgba(255,255,255,.35);font-size:.82rem;padding-top:.5rem;">
+                    <span class="lang-en">Airport: 60 km (~50 min)</span>
+                    <span class="lang-de">Flughafen: 60 km (~50 Min.)</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2025 Olivera Canto. <span class="lang-en">All rights reserved.</span><span class="lang-de">Alle Rechte vorbehalten.</span></span>
+        <span><span class="lang-en">Licensed</span><span class="lang-de">Lizenziert</span>: ETV/12422</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // ── Language Toggle ──
+    const langBtns = document.querySelectorAll('.lang-btn');
+    const savedLang = localStorage.getItem('oc-lang') || 'en';
+
+    function setLang(lang) {
+        document.body.classList.toggle('de', lang === 'de');
+        langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+        localStorage.setItem('oc-lang', lang);
+        document.documentElement.lang = lang;
+    }
+    setLang(savedLang);
+    langBtns.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+
+    // ── Scroll Nav ──
+    const nav = document.getElementById('nav');
+    function checkScroll() {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    }
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+
+    // ── Hamburger ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Intersection Observer (Fade-in) ──
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>
