@@ -425,23 +425,11 @@
         }
 
         /* Language visibility */
-        .lang-de { display: none; }
-        body.de .lang-de { display: inline; }
-        body.de .lang-en { display: none; }
-        body.de span.lang-de, body.de div.lang-de, body.de p.lang-de, body.de li.lang-de, body.de h1.lang-de, body.de h2.lang-de, body.de h3.lang-de, body.de option.lang-de { display: block; }
-        body.de span.lang-en, body.de div.lang-en, body.de p.lang-en, body.de li.lang-en, body.de h1.lang-en, body.de h2.lang-en, body.de h3.lang-en, body.de option.lang-en { display: none; }
-        body.de .lang-de.inline, .lang-en.inline { display: inline; }
-        body.de .lang-en.inline { display: none; }
-
-        /* Fix for flex/grid children */
-        .intro-feature .lang-de, .area-card li .lang-de, .rates-info li .lang-de,
-        .rate-card .lang-de, .footer li .lang-de { display: none; }
-        body.de .intro-feature .lang-de, body.de .area-card li .lang-de,
-        body.de .rates-info li .lang-de, body.de .rate-card .lang-de,
-        body.de .footer li .lang-de { display: inline; }
-        body.de .intro-feature .lang-en, body.de .area-card li .lang-en,
-        body.de .rates-info li .lang-en, body.de .rate-card .lang-en,
-        body.de .footer li .lang-en { display: none; }
+        .lang-de { display: none !important; }
+        body.de .lang-en { display: none !important; }
+        body.de .lang-de { display: inline !important; }
+        body.de p.lang-de, body.de div.lang-de { display: block !important; }
+        body.de h1.lang-de, body.de h2.lang-de, body.de h3.lang-de { display: block !important; }
     </style>
 </head>
 <body>
@@ -571,7 +559,7 @@
                 <img src="https://images.unsplash.com/photo-1574739782594-db4ead022697?w=600&q=80" alt="Outdoor terrace dining" class="gallery-img" loading="lazy">
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Mediterranean garden with olive tree" class="gallery-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?w=600&q=80" alt="Mediterranean garden with olive tree" class="gallery-img" loading="lazy">
             </div>
         </div>
     </div>
