@@ -255,8 +255,33 @@
             width: 100%; aspect-ratio: 4/3; object-fit: cover;
             border: 4px solid var(--white);
             box-shadow: 0 8px 28px rgba(44,62,80,.1);
-            border-radius: 4px;
+            border-radius: 4px; cursor: pointer;
+            transition: transform .3s ease-out, box-shadow .3s ease-out;
         }
+        .story-images img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 36px rgba(44,62,80,.18);
+        }
+        .img-lightbox {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(0,0,0,.88); display: flex;
+            align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity .3s ease-out, visibility .3s ease-out;
+            cursor: pointer;
+        }
+        .img-lightbox.active { opacity: 1; visibility: visible; }
+        .img-lightbox img {
+            max-width: 90vw; max-height: 90vh; object-fit: contain;
+            border-radius: 4px; box-shadow: 0 8px 40px rgba(0,0,0,.4);
+        }
+        .img-lightbox-close {
+            position: absolute; top: 1.5rem; right: 1.5rem;
+            background: none; border: none; color: #fff;
+            font-size: 2rem; cursor: pointer; line-height: 1;
+            opacity: .7; transition: opacity .2s;
+        }
+        .img-lightbox-close:hover { opacity: 1; }
         .story-text p { color: var(--text-light); font-size: .95rem; margin-bottom: 1.3rem; }
         .story-features {
             display: grid; grid-template-columns: 1fr 1fr; gap: .6rem 1.5rem;
@@ -1598,6 +1623,11 @@
     </div>
 </div>
 
+<div class="img-lightbox" id="imgLightbox">
+    <button class="img-lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+</div>
+
 <script>
 (function() {
     // ── Language Toggle ──
@@ -1802,6 +1832,26 @@
             else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
     });
+
+    /* ── Image lightbox for story images ── */
+    var lbOverlay = document.getElementById('imgLightbox');
+    var lbImg = lbOverlay.querySelector('img');
+    var lbClose = lbOverlay.querySelector('.img-lightbox-close');
+
+    document.querySelector('.story-images').addEventListener('click', function(e) {
+        if (e.target.tagName !== 'IMG') return;
+        lbImg.src = e.target.src;
+        lbImg.alt = e.target.alt;
+        lbOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    function closeLightbox() {
+        lbOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    lbClose.addEventListener('click', closeLightbox);
+    lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLightbox(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lbOverlay.classList.contains('active')) closeLightbox(); });
 })();
 </script>
 </body>
