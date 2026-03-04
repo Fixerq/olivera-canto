@@ -238,26 +238,24 @@
             font-family: var(--font-body); font-size: 1rem; font-weight: 300;
             color: var(--gold);
         }
+        .stat-desc {
+            font-size: .65rem; font-weight: 400; letter-spacing: .04em;
+            color: rgba(255,255,255,.35); margin-top: .25rem;
+        }
 
         /* ── STORY ── */
         .story { background: var(--bg-primary); }
         .story-grid {
-            display: grid; grid-template-columns: 1.1fr 1fr;
-            gap: 4rem; align-items: center;
+            display: flex; flex-direction: column; gap: 3rem;
         }
         .story-images {
-            position: relative; height: 520px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem;
         }
-        .story-img-1 {
-            position: absolute; top: 0; left: 0; width: 70%; height: 75%;
-            object-fit: cover; border: 5px solid var(--white);
-            box-shadow: 0 12px 40px rgba(44,62,80,.12);
-        }
-        .story-img-2 {
-            position: absolute; bottom: 0; right: 0; width: 55%; height: 55%;
-            object-fit: cover; border: 5px solid var(--white);
-            box-shadow: 0 12px 40px rgba(44,62,80,.12);
-            z-index: 1;
+        .story-images img {
+            width: 100%; aspect-ratio: 4/3; object-fit: cover;
+            border: 4px solid var(--white);
+            box-shadow: 0 8px 28px rgba(44,62,80,.1);
+            border-radius: 4px;
         }
         .story-text p { color: var(--text-light); font-size: .95rem; margin-bottom: 1.3rem; }
         .story-features {
@@ -786,8 +784,8 @@
             section { padding: 4rem 2rem; }
             .nav { padding: 1rem 2rem; }
             .nav.scrolled { padding: .75rem 2rem; }
-            .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-            .story-images { height: 380px; }
+            .story-grid { gap: 2.5rem; }
+            .story-images { grid-template-columns: repeat(4, 1fr); }
             .masonry { columns: 2; }
             .tab-grid { grid-template-columns: 1fr 1fr; }
             .rates-layout { grid-template-columns: 1fr; }
@@ -822,7 +820,7 @@
             .contact-form { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
-            .story-images { height: 300px; }
+            .story-images { grid-template-columns: repeat(2, 1fr); }
             .story-features { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -886,10 +884,12 @@
         <div class="stat">
             <div class="stat-number">4</div>
             <div class="stat-label"><span class="lang-en">Bedrooms</span><span class="lang-de">Schlafzimmer</span></div>
+            <div class="stat-desc"><span class="lang-en">3 King beds &amp; 1 Queen bed</span><span class="lang-de">3 Kingsize- &amp; 1 Queensize-Bett</span></div>
         </div>
         <div class="stat">
             <div class="stat-number">4</div>
             <div class="stat-label"><span class="lang-en">Bathrooms</span><span class="lang-de">Badezimmer</span></div>
+            <div class="stat-desc"><span class="lang-en">2 en suite</span><span class="lang-de">2 en suite</span></div>
         </div>
         <div class="stat">
             <div class="stat-number">8</div>
@@ -898,6 +898,7 @@
         <div class="stat">
             <div class="stat-number">240<span class="stat-suffix">m&sup2;</span></div>
             <div class="stat-label"><span class="lang-en">Living Space</span><span class="lang-de">Wohnfl&auml;che</span></div>
+            <div class="stat-desc"><span class="lang-en">360&deg; Rooftop Terrace</span><span class="lang-de">360&deg; Dachterrasse</span></div>
         </div>
     </div>
 </section>
@@ -905,19 +906,33 @@
 <!-- ═══ ORNAMENT ═══ -->
 <div class="ornament"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="var(--gold)"><path d="M12 22c-1-3-6-7-9-7 0-3 3-5 5-4 1-3 3-5 4-9 1 4 3 6 4 9 2-1 5 1 5 4-3 0-8 4-9 7z"/></svg></div>
 
-<!-- ═══ OUR STORY ═══ -->
+<!-- ═══ ABOUT US ═══ -->
 <section class="story" id="story">
     <div class="container">
         <div class="story-grid">
             <div class="story-images fade-in">
-                <img src="images/morning-villa.jpg" alt="Villa Olivera Canto morning exterior with pool" class="story-img-1" loading="lazy">
-                <img src="images/rooftop-views.jpg" alt="360° rooftop terrace views over Portocolom" class="story-img-2" loading="lazy">
+                <img src="images/morning-villa.jpg" alt="Villa Olivera Canto morning exterior with pool" loading="lazy">
+                <img src="images/rooftop-views.jpg" alt="360° rooftop terrace views over Portocolom" loading="lazy">
+                <img src="images/pool-swimming.jpg" alt="Private saltwater swimming pool" loading="lazy">
+                <img src="images/kitchen.jpg" alt="Fully equipped modern kitchen" loading="lazy">
             </div>
             <div class="story-text fade-in">
-                <p class="section-label"><span class="lang-en">Our Story</span><span class="lang-de">Unsere Geschichte</span></p>
+                <p class="section-label"><span class="lang-en">About Us</span><span class="lang-de">&Uuml;ber uns</span></p>
                 <h2 class="section-title">Olivera Canto</h2>
-                <p class="lang-en">Villa Olivera Canto impresses with its privileged location, stunning views and high-quality finishes in a favoured area of Portocolom. Recently remodelled in contemporary design, it seamlessly combines modern comfort with Mediterranean soul. Named after the ancient olive tree that graces our garden, the villa offers 240m&sup2; of elegant living space across two floors, crowned by an extraordinary rooftop terrace with 360&deg; panoramic views of the sea, the mountains, and the charming rooftops of Portocolom below.</p>
-                <p class="lang-de">Villa Olivera Canto beeindruckt durch ihre privilegierte Lage, atemberaubende Ausblicke und hochwertige Ausstattung in einer bevorzugten Gegend von Portocolom. K&uuml;rzlich im zeitgen&ouml;ssischen Design umgestaltet, verbindet sie modernen Komfort nahtlos mit mediterraner Seele. Benannt nach dem alten Olivenbaum in unserem Garten, bietet die Villa 240m&sup2; eleganten Wohnraum auf zwei Etagen, gekr&ouml;nt von einer au&szlig;ergew&ouml;hnlichen Dachterrasse mit 360&deg; Panoramablick auf das Meer, die Berge und die charmanten D&auml;cher von Portocolom.</p>
+                <p class="lang-en">Villa Olivera Canto impresses with its location, views and high-quality materials in a favoured area of Portocolom. Recently redesigned, it combines modern and Mediterranean elements.</p>
+                <p class="lang-en">The highlight of this beautiful villa is the stunning rooftop terrace with outdoor kitchen (dishwasher, stove, grill, fridge), multiple seating and lounging areas, and a magnificent 360&deg; panoramic view of the mountains, the sea and the natural harbour of Portocolom. Enjoying a BBQ in the evening with a sundowner on the rooftop terrace - what could be better.</p>
+                <p class="lang-en">A well-maintained green garden and a 4.00 x 8.40 metre swimming pool with sun terrace complete the property. The private pool is filled with natural saltwater, resulting in crystal-clear water without chlorine or large amounts of water treatment chemicals.</p>
+                <p class="lang-en">All pergolas on the ground floor above the terrace and on the roof are fitted with adjustable louvres that provide shade as well as ventilation.</p>
+                <p class="lang-en">The kitchen is fully equipped with everything you need for a perfect cooking experience. The rooftop kitchen is also equipped with dishes, cutlery and more, so there is no need to constantly go up and down.</p>
+                <p class="lang-en">Portocolom stands for the original Mallorca without having to forego the amenities of a modern holiday resort. Reachable from the airport in around 50 minutes by car. The quiet coastal town with the largest natural harbour in Mallorca offers the perfect environment for holidaymakers who want to discover a less touristy Mallorca and long for peace and privacy.</p>
+                <p class="lang-en">The harbour and the promenade with many small, excellent restaurants can be reached in less than one kilometre, also on foot.</p>
+                <p class="lang-de">Die Villa Olivera Canto besticht durch Lage, Blick und qualitativ hochwertige Materialien in bevorzugter Gegend von Portocolom. Sie wurde k&uuml;rzlich im neuen Design umgebaut und kombiniert moderne sowie mediterrane Elemente.</p>
+                <p class="lang-de">Highlight dieser wundersch&ouml;nen Villa ist die traumhafte Dachterrasse mit Aussenk&uuml;che (Sp&uuml;lmaschine, Herd, Grill, K&uuml;hlschrank), mehreren Sitz- sowie Liegem&ouml;glichkeiten und einem grandiosen 360&deg; Panoramablick auf die Berge, das Meer und den Naturhafen von Portocolom. Hier ein BBQ am Abend mit einem Sun Downer auf der Dachterrasse genie&szlig;en, was kann es sch&ouml;neres geben.</p>
+                <p class="lang-de">Ein gepflegter gr&uuml;ner Gartenbereich und ein 4,00 x 8,40 Meter grosser Swimmingpool und Liegeterrasse machen dieses Objekt komplett. Gef&uuml;llt ist der private Swimmingpool mit nat&uuml;rlichem Salzwasser. Das Ergebnis ist kristallklares Wasser ohne Chlor oder gro&szlig;e Mengen an Wasserpflegemitteln.</p>
+                <p class="lang-de">Alle Pergolas im Erdgeschoss &uuml;ber der Terrasse und auch die Pergolas auf dem Dach sind mit verstellbaren Lamellen ausgestattet, die f&uuml;r Schatten aber auch f&uuml;r Durchl&uuml;ftung sorgen.</p>
+                <p class="lang-de">Die K&uuml;che ist mit allem ausgestattet was man f&uuml;r ein perfektes Kocherlebnis ben&ouml;tigt. Auch die K&uuml;che auf der Dachterrasse ist mit Geschirr und Besteck usw. ausgestattet, so dass ein dauerndes Hoch und Runterlaufen nicht n&ouml;tig ist.</p>
+                <p class="lang-de">Portocolom steht f&uuml;r das urspr&uuml;ngliche Mallorca, ohne gleichzeitig auf die Annehmlichkeiten eines modernen Ferienortes verzichten zu m&uuml;ssen. Vom Flughafen in rund 50 Minuten mit dem Auto erreichbar. Der ruhige K&uuml;stenort mit dem gr&ouml;&szlig;ten Naturhafen Mallorcas bietet die perfekte Umgebung f&uuml;r Urlauber, die ein weniger touristisches Mallorca kennen lernen m&ouml;chten und sich nach Ruhe und Privatsph&auml;re sehnen.</p>
+                <p class="lang-de">Der Hafen, sowie die Promenade mit vielen kleinen, guten Restaurants sind in weniger als einem Kilometer auch fu&szlig;l&auml;ufig erreichbar.</p>
                 <p style="color:var(--text-light);font-size:.88rem;margin-top:.5rem;">
                     <span class="lang-en">Your hosts: <strong>Sylvia &amp; Thomas Tillmann</strong></span>
                     <span class="lang-de">Ihre Gastgeber: <strong>Sylvia &amp; Thomas Tillmann</strong></span>
