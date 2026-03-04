@@ -87,12 +87,12 @@
         .nav.scrolled .lang-toggle span { color: #bbb; }
         .nav-cta {
             background: var(--terracotta); color: var(--white) !important;
-            padding: .55rem 1.4rem; border-radius: 0;
+            padding: .55rem 1.4rem; border-radius: 2px;
             font-size: .78rem !important; letter-spacing: .1em !important;
             border: 1px solid var(--terracotta);
-            transition: background .3s !important;
+            transition: background .3s ease-out, box-shadow .3s ease-out !important;
         }
-        .nav-cta:hover { background: var(--terracotta-dark); }
+        .nav-cta:hover { background: var(--terracotta-dark); box-shadow: 0 2px 12px rgba(193,127,89,.25); }
 
         .nav-hamburger {
             display: none; background: none; border: none; cursor: pointer;
@@ -152,41 +152,63 @@
         .btn-primary {
             display: inline-block;
             background: var(--terracotta); color: var(--white);
-            padding: .9rem 2.6rem;
-            font-family: var(--font-body); font-size: .8rem; font-weight: 500;
+            padding: .95rem 2.8rem; border-radius: 2px;
+            font-family: var(--font-body); font-size: .78rem; font-weight: 500;
             letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
-            border: none; cursor: pointer; transition: background .3s;
+            border: none; cursor: pointer;
+            transition: background .3s ease-out, box-shadow .3s ease-out, transform .2s ease-out;
+            box-shadow: 0 2px 8px rgba(193,127,89,.2);
         }
-        .btn-primary:hover { background: var(--terracotta-dark); }
+        .btn-primary:hover {
+            background: var(--terracotta-dark);
+            box-shadow: 0 4px 16px rgba(193,127,89,.3);
+            transform: translateY(-1px);
+        }
+        .btn-primary:active { transform: translateY(0); box-shadow: 0 1px 4px rgba(193,127,89,.2); }
+        .btn-primary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
         .btn-outline {
             display: inline-block;
             border: 1px solid rgba(255,255,255,.45); color: var(--white);
-            padding: .9rem 2.6rem; margin-left: 1rem;
-            font-family: var(--font-body); font-size: .8rem; font-weight: 500;
+            padding: .95rem 2.8rem; margin-left: 1rem; border-radius: 2px;
+            font-family: var(--font-body); font-size: .78rem; font-weight: 500;
             letter-spacing: .15em; text-transform: uppercase; text-decoration: none;
-            transition: background .3s, border-color .3s;
+            transition: background .3s ease-out, border-color .3s ease-out, transform .2s ease-out;
         }
-        .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+        .btn-outline:hover {
+            background: rgba(255,255,255,.1); border-color: var(--white);
+            transform: translateY(-1px);
+        }
+        .btn-outline:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
         /* ── ORNAMENTAL DIVIDER ── */
         .ornament {
-            text-align: center; padding: 1.5rem 0;
-            color: var(--gold); font-size: 1.2rem; letter-spacing: .5em;
+            display: flex; align-items: center; justify-content: center;
+            gap: 1.5rem; padding: 2.2rem 3rem;
             user-select: none;
         }
-        .ornament-light { color: rgba(255,255,255,.3); }
+        .ornament::before, .ornament::after {
+            content: ''; flex: 1; max-width: 120px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: .4;
+        }
+        .ornament svg { width: 22px; height: 22px; opacity: .5; }
+        .ornament-light svg { opacity: .2; }
 
         /* ── SECTIONS ── */
-        section { padding: 5.5rem 3rem; }
+        section { padding: 6rem 3rem; }
         .section-label {
-            font-family: var(--font-body); font-size: .72rem; font-weight: 500;
-            letter-spacing: .2em; text-transform: uppercase; color: var(--terracotta);
-            margin-bottom: .6rem;
+            font-family: var(--font-body); font-size: .7rem; font-weight: 500;
+            letter-spacing: .22em; text-transform: uppercase; color: var(--terracotta);
+            margin-bottom: .8rem;
+            display: inline-flex; align-items: center; gap: .6rem;
+        }
+        .section-label::before {
+            content: ''; width: 24px; height: 1px; background: var(--terracotta); opacity: .5;
         }
         .section-title {
             font-family: var(--font-heading); font-weight: 500;
             font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.2;
-            margin-bottom: 1.2rem; color: var(--navy);
+            margin-bottom: 1.4rem; color: var(--navy);
         }
         .container { max-width: 1200px; margin: 0 auto; }
 
@@ -228,13 +250,13 @@
         }
         .story-img-1 {
             position: absolute; top: 0; left: 0; width: 70%; height: 75%;
-            object-fit: cover; border: 6px solid var(--white);
-            box-shadow: 0 8px 40px rgba(0,0,0,.1);
+            object-fit: cover; border: 5px solid var(--white);
+            box-shadow: 0 12px 40px rgba(44,62,80,.12);
         }
         .story-img-2 {
             position: absolute; bottom: 0; right: 0; width: 55%; height: 55%;
-            object-fit: cover; border: 6px solid var(--white);
-            box-shadow: 0 8px 40px rgba(0,0,0,.1);
+            object-fit: cover; border: 5px solid var(--white);
+            box-shadow: 0 12px 40px rgba(44,62,80,.12);
             z-index: 1;
         }
         .story-text p { color: var(--text-light); font-size: .95rem; margin-bottom: 1.3rem; }
@@ -246,6 +268,103 @@
             font-size: .85rem; color: var(--text-light); padding: .3rem 0;
         }
         .story-feature::before { content: '\2022 '; color: var(--terracotta); font-weight: 700; }
+        .view-all-amenities {
+            display: inline-flex; align-items: center; gap: .5rem;
+            margin-top: 1.4rem; font-size: .88rem; color: var(--terracotta);
+            cursor: pointer; border: none; background: none; padding: .4rem 0;
+            font-family: var(--font-body); transition: color .2s ease-out, gap .2s ease-out;
+            letter-spacing: .02em;
+        }
+        .view-all-amenities:hover { color: var(--terracotta-dark); gap: .7rem; }
+        .view-all-amenities:focus-visible {
+            outline: 2px solid var(--terracotta); outline-offset: 4px; border-radius: 2px;
+        }
+        .view-all-amenities::after {
+            content: '\2192'; font-size: .9em; transition: transform .2s ease-out;
+        }
+        .view-all-amenities:hover::after { transform: translateX(2px); }
+
+        /* ── AMENITIES MODAL ── */
+        .amenities-overlay {
+            position: fixed; inset: 0; z-index: 1100;
+            background: rgba(44, 62, 80, .45); backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden;
+            transition: opacity .25s ease-out, visibility .25s ease-out;
+        }
+        .amenities-overlay.active { opacity: 1; visibility: visible; }
+        .amenities-modal {
+            background: var(--white); border-radius: 16px;
+            width: 92%; max-width: 580px; max-height: 85vh;
+            overflow-y: auto; position: relative;
+            box-shadow: 0 25px 60px rgba(44, 62, 80, .18), 0 8px 20px rgba(0,0,0,.08);
+            transform: translateY(24px) scale(.97);
+            transition: transform .3s cubic-bezier(.22, .61, .36, 1);
+        }
+        .amenities-overlay.active .amenities-modal {
+            transform: translateY(0) scale(1);
+        }
+        .amenities-modal-header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 1.5rem 1.8rem 1.1rem; position: sticky; top: 0;
+            background: var(--white); border-bottom: 1px solid rgba(193, 127, 89, .12);
+            z-index: 1; border-radius: 16px 16px 0 0;
+        }
+        .amenities-modal-header h3 {
+            font-family: var(--font-heading); font-size: 1.25rem;
+            color: var(--navy); margin: 0; letter-spacing: .01em;
+        }
+        .amenities-modal-close {
+            width: 44px; height: 44px; border-radius: 50%;
+            border: none; background: var(--bg-primary); cursor: pointer;
+            font-size: 1.2rem; color: var(--text-light); display: flex;
+            align-items: center; justify-content: center;
+            transition: background .2s ease-out, color .2s ease-out;
+            flex-shrink: 0;
+        }
+        .amenities-modal-close:hover { background: var(--bg-secondary); color: var(--text); }
+        .amenities-modal-close:focus-visible {
+            outline: 2px solid var(--terracotta); outline-offset: 2px;
+        }
+        .amenities-modal-body { padding: 1.2rem 1.8rem 2rem; }
+        .amenities-category { margin-bottom: 1.6rem; }
+        .amenities-category:last-child { margin-bottom: 0; }
+        .amenities-category h4 {
+            font-family: var(--font-heading); font-size: .92rem;
+            color: var(--navy); margin: 0 0 .7rem; padding-bottom: .5rem;
+            border-bottom: 1px solid rgba(193, 127, 89, .12);
+            letter-spacing: .02em;
+        }
+        .amenities-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: .35rem 1rem;
+        }
+        .amenities-item {
+            font-size: .84rem; color: var(--text-light); padding: .3rem 0;
+            display: flex; align-items: baseline; gap: .45rem;
+        }
+        .amenities-item::before {
+            content: '\2713'; color: var(--olive); font-weight: 700;
+            font-size: .75rem; flex-shrink: 0;
+        }
+        .amenities-item.no-item { color: var(--text-light); opacity: .7; }
+        .amenities-item.no-item::before { content: '\2715'; color: #c0392b; }
+        @media (prefers-reduced-motion: reduce) {
+            .amenities-overlay,
+            .amenities-modal,
+            .view-all-amenities,
+            .view-all-amenities::after { transition: none; }
+        }
+        @media (max-width: 600px) {
+            .amenities-modal {
+                width: 100%; max-width: 100%; max-height: 100vh;
+                border-radius: 16px 16px 0 0; margin-top: auto;
+            }
+            .amenities-overlay { align-items: flex-end; }
+            .amenities-modal-header { border-radius: 16px 16px 0 0; }
+            .amenities-grid { grid-template-columns: 1fr; }
+            .amenities-modal-body { padding-bottom: 2.5rem; }
+        }
 
         /* ── VIDEO ── */
         .video { background: var(--navy); }
@@ -327,10 +446,12 @@
             break-inside: avoid; margin-bottom: 1rem;
             overflow: hidden; border: 4px solid var(--white);
             box-shadow: 0 3px 15px rgba(0,0,0,.06);
+            transition: box-shadow .4s ease-out;
         }
+        .masonry-item:hover { box-shadow: 0 8px 30px rgba(0,0,0,.12); }
         .masonry-img {
             width: 100%; display: block;
-            transition: transform .6s;
+            transition: transform .6s cubic-bezier(.22,.61,.36,1);
         }
         .masonry-item:hover .masonry-img { transform: scale(1.04); }
 
@@ -346,29 +467,51 @@
         }
         .tab-btn {
             background: none; border: 1px solid var(--bg-secondary); cursor: pointer;
-            font-family: var(--font-body); font-size: .78rem; font-weight: 500;
+            font-family: var(--font-body); font-size: .76rem; font-weight: 500;
             letter-spacing: .12em; text-transform: uppercase;
-            color: var(--text-light); padding: .7rem 1.8rem;
-            transition: all .3s;
+            color: var(--text-light); padding: .75rem 1.8rem; border-radius: 2px;
+            transition: background .3s ease-out, color .3s ease-out, border-color .3s ease-out, box-shadow .3s ease-out;
         }
-        .tab-btn.active, .tab-btn:hover {
+        .tab-btn:hover {
+            border-color: var(--navy); color: var(--navy);
+        }
+        .tab-btn.active {
             background: var(--navy); color: var(--white); border-color: var(--navy);
+            box-shadow: 0 2px 8px rgba(44,62,80,.15);
         }
+        .tab-btn:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         .tab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
         .tab-card {
-            background: var(--white); padding: 2rem; border: 1px solid #e4ddd2;
+            background: var(--white); padding: 2.2rem 2rem 2rem; border: 1px solid #e4ddd2;
             text-align: center;
+            transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s ease-out, border-color .3s ease-out;
         }
-        .tab-card-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+        .tab-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(44,62,80,.08);
+            border-color: rgba(193,127,89,.25);
+        }
+        .tab-card-icon {
+            width: 48px; height: 48px; margin: 0 auto .9rem;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 1px solid rgba(193,127,89,.15);
+        }
+        .tab-card-icon svg {
+            width: 22px; height: 22px;
+            stroke: var(--terracotta); fill: none;
+            stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+        }
         .tab-card h4 {
             font-family: var(--font-heading); font-size: 1.1rem; font-weight: 500;
             color: var(--navy); margin-bottom: .5rem;
         }
-        .tab-card p { font-size: .85rem; color: var(--text-light); }
+        .tab-card p { font-size: .85rem; color: var(--text-light); line-height: 1.7; }
         .tab-card .dist-tag {
-            display: inline-block; margin-top: .6rem;
+            display: inline-block; margin-top: .8rem;
             font-size: .72rem; font-weight: 500; letter-spacing: .1em;
             color: var(--terracotta); text-transform: uppercase;
         }
@@ -480,14 +623,15 @@
         .inclusions li::before { content: '+ '; color: var(--terracotta); font-weight: 600; }
         .inclusions li:last-child { border-bottom: none; }
         .terms-box {
-            margin-top: 2rem; padding: 1.5rem;
+            margin-top: 2rem; padding: 1.6rem 1.8rem;
             background: rgba(255,255,255,.6); border: 1px solid #d9d0c3;
+            border-left: 3px solid var(--terracotta);
         }
         .terms-box h5 {
             font-family: var(--font-heading); font-size: .95rem; font-weight: 500;
-            color: var(--navy); margin-bottom: .6rem;
+            color: var(--navy); margin-bottom: .7rem;
         }
-        .terms-box p { font-size: .82rem; color: var(--text-light); margin-bottom: .3rem; }
+        .terms-box p { font-size: .82rem; color: var(--text-light); margin-bottom: .35rem; line-height: 1.7; }
 
         /* ── REVIEWS ── */
         .reviews { background: var(--bg-primary); }
@@ -501,27 +645,33 @@
             border: 1px solid #e4ddd2;
             position: relative;
             height: 100%;
+            box-shadow: 0 2px 12px rgba(44,62,80,.04);
+            transition: box-shadow .3s ease-out, transform .3s cubic-bezier(.22,.61,.36,1);
+        }
+        .review-card:hover {
+            box-shadow: 0 8px 28px rgba(44,62,80,.08);
+            transform: translateY(-2px);
         }
         .review-quote {
             font-family: var(--font-heading); font-size: 4rem; font-weight: 700;
             color: var(--gold); line-height: 1; position: absolute;
-            top: .8rem; left: 1.5rem; opacity: .5;
+            top: .8rem; left: 1.5rem; opacity: .35;
         }
-        .review-stars { color: var(--gold); font-size: 1rem; letter-spacing: .15em; margin-bottom: .75rem; }
+        .review-stars { color: var(--gold); font-size: .9rem; letter-spacing: .2em; margin-bottom: .75rem; }
         .review-title {
             font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;
-            color: var(--navy); margin-bottom: .75rem;
+            color: var(--navy); margin-bottom: .75rem; line-height: 1.4;
         }
         .review-text {
-            font-size: .9rem; color: var(--text-light); line-height: 1.85;
+            font-size: .88rem; color: var(--text-light); line-height: 1.85;
             margin-bottom: 1.5rem; font-style: italic;
             position: relative; z-index: 1;
         }
         .review-author {
-            font-family: var(--font-heading); font-size: 1rem; font-weight: 500;
+            font-family: var(--font-heading); font-size: .95rem; font-weight: 500;
             color: var(--navy);
         }
-        .review-date { font-size: .78rem; color: var(--text-light); }
+        .review-date { font-size: .76rem; color: var(--text-light); margin-top: .15rem; }
         .reviews-overall {
             text-align: center; margin-top: 3rem;
             font-family: var(--font-heading); font-size: 1rem; color: var(--text-light);
@@ -545,10 +695,11 @@
             display: flex; align-items: flex-start; gap: .8rem; margin-bottom: 1.2rem;
         }
         .contact-detail .cd-icon {
-            width: 36px; height: 36px; border-radius: 50%;
+            width: 40px; height: 40px; border-radius: 50%;
             background: var(--white); display: flex; align-items: center;
-            justify-content: center; font-size: .9rem; flex-shrink: 0;
-            border: 1px solid #d9d0c3;
+            justify-content: center; font-size: .85rem; flex-shrink: 0;
+            border: 1px solid rgba(193,127,89,.2);
+            color: var(--terracotta);
         }
         .contact-detail .cd-text { font-size: .88rem; color: var(--text); }
         .contact-detail .cd-text small { display: block; color: var(--text-light); font-size: .78rem; }
@@ -562,12 +713,16 @@
         }
         .form-group input, .form-group textarea, .form-group select {
             font-family: var(--font-body); font-size: .88rem; font-weight: 300;
-            padding: .85rem 1rem; border: 1px solid #d0c8bb;
+            padding: .9rem 1.1rem; border: 1px solid #d0c8bb; border-radius: 2px;
             background: var(--white); color: var(--text);
-            transition: border-color .3s;
+            transition: border-color .3s ease-out, box-shadow .3s ease-out;
         }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none; border-color: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(193,127,89,.1);
+        }
+        .form-group input:focus-visible, .form-group textarea:focus-visible, .form-group select:focus-visible {
+            outline: 2px solid var(--terracotta); outline-offset: 1px;
         }
         .form-group textarea { resize: vertical; min-height: 120px; }
         .contact-note {
@@ -611,10 +766,20 @@
 
         /* ── ANIMATIONS ── */
         .fade-in {
-            opacity: 0; transform: translateY(25px);
-            transition: opacity .8s ease-out, transform .8s ease-out;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
         }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .fade-in { opacity: 1; transform: none; }
+            html { scroll-behavior: auto; }
+        }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
@@ -738,7 +903,7 @@
 </section>
 
 <!-- ═══ ORNAMENT ═══ -->
-<div class="ornament">&hearts; &bull; &hearts;</div>
+<div class="ornament"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="var(--gold)"><path d="M12 22c-1-3-6-7-9-7 0-3 3-5 5-4 1-3 3-5 4-9 1 4 3 6 4 9 2-1 5 1 5 4-3 0-8 4-9 7z"/></svg></div>
 
 <!-- ═══ OUR STORY ═══ -->
 <section class="story" id="story">
@@ -767,6 +932,14 @@
                     <span class="story-feature"><span class="lang-en">Fireplace</span><span class="lang-de">Kamin</span></span>
                     <span class="story-feature"><span class="lang-en">Solar Outdoor Shower</span><span class="lang-de">Solar-Au&szlig;endusche</span></span>
                 </div>
+                <button class="view-all-amenities" id="openAmenities">
+                    <span class="lang-en">View all amenities of the property</span>
+                    <span class="lang-de">Alle Ausstattungen der Unterkunft anzeigen</span>
+                </button>
+                <button class="view-all-amenities" id="openRoomsBeds">
+                    <span class="lang-en">View rooms &amp; beds</span>
+                    <span class="lang-de">Zimmer &amp; Betten anzeigen</span>
+                </button>
             </div>
         </div>
     </div>
@@ -793,7 +966,7 @@
 </section>
 
 <!-- ═══ ORNAMENT ═══ -->
-<div class="ornament">&hearts; &bull; &hearts;</div>
+<div class="ornament"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="var(--gold)"><path d="M12 22c-1-3-6-7-9-7 0-3 3-5 5-4 1-3 3-5 4-9 1 4 3 6 4 9 2-1 5 1 5 4-3 0-8 4-9 7z"/></svg></div>
 
 <!-- ═══ GALLERY ═══ -->
 <section class="gallery" id="gallery">
@@ -882,19 +1055,19 @@
         <div class="tab-content active" id="tab-beaches">
             <div class="tab-grid">
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#127965;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg></div>
                     <h4><span class="lang-en">Nearest Beach</span><span class="lang-de">N&auml;chster Strand</span></h4>
                     <p><span class="lang-en">Crystal clear waters just moments from the villa</span><span class="lang-de">Kristallklares Wasser nur wenige Augenblicke von der Villa</span></p>
                     <span class="dist-tag">1.9 km</span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#127754;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.4 2 5 2c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2s2.4 2 5 2c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg></div>
                     <h4>Cala Mar&ccedil;al</h4>
                     <p><span class="lang-en">Blue Flag beach, family-friendly with beach bars</span><span class="lang-de">Blaue Flagge Strand, familienfreundlich mit Strandbars</span></p>
                     <span class="dist-tag"><span class="lang-en">5 min drive</span><span class="lang-de">5 Min. Fahrt</span></span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#127758;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
                     <h4>Cala Sa Nau</h4>
                     <p><span class="lang-en">Hidden cove with turquoise waters, surrounded by cliffs and pines</span><span class="lang-de">Versteckte Bucht mit t&uuml;rkisfarbenem Wasser, umgeben von Klippen und Pinien</span></p>
                     <span class="dist-tag"><span class="lang-en">15 min drive</span><span class="lang-de">15 Min. Fahrt</span></span>
@@ -906,19 +1079,19 @@
         <div class="tab-content" id="tab-dining">
             <div class="tab-grid">
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#127860;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></div>
                     <h4><span class="lang-en">Restaurants</span><span class="lang-de">Restaurants</span></h4>
                     <p><span class="lang-en">Local and international dining options</span><span class="lang-de">Lokale und internationale Restaurants</span></p>
                     <span class="dist-tag">1 km</span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#9875;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 22V8"/><path d="m5 12 7 3 7-3"/></svg></div>
                     <h4><span class="lang-en">Harbour &amp; Town Centre</span><span class="lang-de">Hafen &amp; Ortszentrum</span></h4>
                     <p><span class="lang-en">The largest natural harbour in Mallorca with waterfront cafes</span><span class="lang-de">Der gr&ouml;&szlig;te Naturhafen Mallorcas mit Caf&eacute;s am Wasser</span></p>
                     <span class="dist-tag">1 km</span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#128722;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
                     <h4><span class="lang-en">Shops &amp; Pharmacy</span><span class="lang-de">Gesch&auml;fte &amp; Apotheke</span></h4>
                     <p><span class="lang-en">Daily essentials within walking distance</span><span class="lang-de">T&auml;glicher Bedarf in Gehweite</span></p>
                     <span class="dist-tag">700 m</span>
@@ -930,19 +1103,19 @@
         <div class="tab-content" id="tab-activities">
             <div class="tab-grid">
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#9971;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></div>
                     <h4><span class="lang-en">Vall d'Or Golf</span><span class="lang-de">Vall d'Or Golf</span></h4>
                     <p><span class="lang-en">18-hole course with Mediterranean views</span><span class="lang-de">18-Loch-Platz mit Mittelmeerblick</span></p>
                     <span class="dist-tag">2 km</span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#9973;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M2 20a6 6 0 0 0 12 0c0-4-6-3-6-9"/><path d="M12 2v9l3-3"/><path d="M8 11V2h8"/></svg></div>
                     <h4><span class="lang-en">Sailing &amp; Boat Trips</span><span class="lang-de">Segeln &amp; Bootsausfl&uuml;ge</span></h4>
                     <p><span class="lang-en">Explore the coast from the harbour</span><span class="lang-de">Erkunden Sie die K&uuml;ste vom Hafen aus</span></p>
                     <span class="dist-tag"><span class="lang-en">At the harbour</span><span class="lang-de">Am Hafen</span></span>
                 </div>
                 <div class="tab-card">
-                    <div class="tab-card-icon">&#127863;</div>
+                    <div class="tab-card-icon"><svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M10 2c0 4-2 6-2 9a4 4 0 1 0 8 0c0-3-2-5-2-9z"/></svg></div>
                     <h4><span class="lang-en">Wine Tasting</span><span class="lang-de">Weinverkostung</span></h4>
                     <p><span class="lang-en">Tours in the Felanitx wine region</span><span class="lang-de">Touren in der Weinregion Felanitx</span></p>
                     <span class="dist-tag"><span class="lang-en">Nearby</span><span class="lang-de">In der N&auml;he</span></span>
@@ -969,7 +1142,7 @@
 </section>
 
 <!-- ═══ ORNAMENT ═══ -->
-<div class="ornament">&hearts; &bull; &hearts;</div>
+<div class="ornament"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="var(--gold)"><path d="M12 22c-1-3-6-7-9-7 0-3 3-5 5-4 1-3 3-5 4-9 1 4 3 6 4 9 2-1 5 1 5 4-3 0-8 4-9 7z"/></svg></div>
 
 <!-- ═══ RATES ═══ -->
 <section class="rates" id="rates">
@@ -1041,7 +1214,7 @@
 </section>
 
 <!-- ═══ ORNAMENT ═══ -->
-<div class="ornament">&hearts; &bull; &hearts;</div>
+<div class="ornament"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" color="var(--gold)"><path d="M12 22c-1-3-6-7-9-7 0-3 3-5 5-4 1-3 3-5 4-9 1 4 3 6 4 9 2-1 5 1 5 4-3 0-8 4-9 7z"/></svg></div>
 
 <!-- ═══ REVIEWS ═══ -->
 <section class="reviews" id="reviews">
@@ -1245,6 +1418,171 @@
     </div>
 </footer>
 
+<!-- ═══ AMENITIES MODAL ═══ -->
+<div class="amenities-overlay" id="amenitiesOverlay" role="dialog" aria-modal="true" aria-labelledby="amenitiesTitle">
+    <div class="amenities-modal">
+        <div class="amenities-modal-header">
+            <h3 id="amenitiesTitle"><span class="lang-en">Property Amenities</span><span class="lang-de">Ausstattung der Unterkunft</span></h3>
+            <button class="amenities-modal-close" id="closeAmenities" aria-label="Close">&times;</button>
+        </div>
+        <div class="amenities-modal-body">
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Popular Amenities</span><span class="lang-de">Beliebte Ausstattung</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Private pool</span><span class="lang-de">Privater Pool</span></span>
+                    <span class="amenities-item"><span class="lang-en">Parking on site</span><span class="lang-de">Parkpl&auml;tze vor Ort</span></span>
+                    <span class="amenities-item"><span class="lang-en">Kitchen</span><span class="lang-de">K&uuml;che</span></span>
+                    <span class="amenities-item"><span class="lang-en">Cooking equipment</span><span class="lang-de">Kochutensilien</span></span>
+                    <span class="amenities-item"><span class="lang-en">Air conditioning</span><span class="lang-de">Klimaanlage</span></span>
+                    <span class="amenities-item"><span class="lang-en">Grill</span><span class="lang-de">Grill</span></span>
+                    <span class="amenities-item"><span class="lang-en">Washing machine</span><span class="lang-de">Waschmaschine</span></span>
+                    <span class="amenities-item"><span class="lang-en">Dishwasher</span><span class="lang-de">Geschirrsp&uuml;ler</span></span>
+                    <span class="amenities-item"><span class="lang-en">TV</span><span class="lang-de">Fernseher</span></span>
+                    <span class="amenities-item"><span class="lang-en">Iron</span><span class="lang-de">B&uuml;geleisen</span></span>
+                    <span class="amenities-item"><span class="lang-en">Refrigerator</span><span class="lang-de">K&uuml;hlschrank</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Basics</span><span class="lang-de">Grundausstattung</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">WiFi</span><span class="lang-de">WLAN</span></span>
+                    <span class="amenities-item"><span class="lang-en">&gt;100 Mbps (streaming &amp; video calls)</span><span class="lang-de">&gt;100 Mbps (Streaming &amp; Videoanrufe)</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Kitchen</span><span class="lang-de">K&uuml;che</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Dishes and cutlery</span><span class="lang-de">Geschirr und Besteck</span></span>
+                    <span class="amenities-item"><span class="lang-en">Refrigerator</span><span class="lang-de">K&uuml;hlschrank</span></span>
+                    <span class="amenities-item"><span class="lang-en">Dishwasher</span><span class="lang-de">Geschirrsp&uuml;ler</span></span>
+                    <span class="amenities-item"><span class="lang-en">Coffee machine</span><span class="lang-de">Kaffeemaschine</span></span>
+                    <span class="amenities-item"><span class="lang-en">Oven</span><span class="lang-de">Backofen</span></span>
+                    <span class="amenities-item"><span class="lang-en">Microwave</span><span class="lang-de">Mikrowelle</span></span>
+                    <span class="amenities-item"><span class="lang-en">Stove</span><span class="lang-de">Herd</span></span>
+                    <span class="amenities-item"><span class="lang-en">Cooking equipment</span><span class="lang-de">Kochutensilien</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Pool &amp; Wellness</span><span class="lang-de">Pool &amp; Wellness</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Private pool</span><span class="lang-de">Privater Pool</span></span>
+                    <span class="amenities-item"><span class="lang-en">Solar outdoor shower</span><span class="lang-de">Solar-Au&szlig;endusche</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Outdoors</span><span class="lang-de">Au&szlig;enbereich</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">360&deg; Rooftop terrace</span><span class="lang-de">360&deg; Dachterrasse</span></span>
+                    <span class="amenities-item"><span class="lang-en">Outdoor kitchen</span><span class="lang-de">Au&szlig;enk&uuml;che</span></span>
+                    <span class="amenities-item"><span class="lang-en">Gas BBQ</span><span class="lang-de">Gas-Grill</span></span>
+                    <span class="amenities-item"><span class="lang-en">Garden</span><span class="lang-de">Garten</span></span>
+                    <span class="amenities-item"><span class="lang-en">Terrace</span><span class="lang-de">Terrasse</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Pets</span><span class="lang-de">Haustiere</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item no-item"><span class="lang-en">No pets allowed</span><span class="lang-de">Keine Haustiere erlaubt</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Entertainment</span><span class="lang-de">Unterhaltung</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">TV</span><span class="lang-de">Fernseher</span></span>
+                    <span class="amenities-item"><span class="lang-en">Books</span><span class="lang-de">B&uuml;cher</span></span>
+                    <span class="amenities-item"><span class="lang-en">Games</span><span class="lang-de">Spiele</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Baby &amp; Toddler</span><span class="lang-de">Baby &amp; Kleinkind</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">High chair</span><span class="lang-de">Hochstuhl</span></span>
+                    <span class="amenities-item"><span class="lang-en">Travel cot</span><span class="lang-de">Reisebett</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Laundry</span><span class="lang-de">W&auml;sche</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Washing machine</span><span class="lang-de">Waschmaschine</span></span>
+                    <span class="amenities-item"><span class="lang-en">Iron and ironing board</span><span class="lang-de">B&uuml;geleisen und B&uuml;gelbrett</span></span>
+                    <span class="amenities-item"><span class="lang-en">Clothes dryer</span><span class="lang-de">W&auml;schetrockner</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Safety</span><span class="lang-de">Sicherheit</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Smoke detector</span><span class="lang-de">Rauchmelder</span></span>
+                    <span class="amenities-item"><span class="lang-en">Fire extinguisher</span><span class="lang-de">Feuerl&ouml;scher</span></span>
+                    <span class="amenities-item"><span class="lang-en">First aid kit</span><span class="lang-de">Erste-Hilfe-Kasten</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Parking</span><span class="lang-de">Parken</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Free parking on site</span><span class="lang-de">Kostenlose Parkpl&auml;tze vor Ort</span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- ═══ ROOMS & BEDS MODAL ═══ -->
+<div class="amenities-overlay" id="roomsBedsOverlay" role="dialog" aria-modal="true" aria-labelledby="roomsBedsTitle">
+    <div class="amenities-modal">
+        <div class="amenities-modal-header">
+            <h3 id="roomsBedsTitle"><span class="lang-en">Rooms &amp; Beds</span><span class="lang-de">Zimmer &amp; Betten</span></h3>
+            <button class="amenities-modal-close" id="closeRoomsBeds" aria-label="Close">&times;</button>
+        </div>
+        <div class="amenities-modal-body">
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">4 Bedrooms (sleeps 8)</span><span class="lang-de">4 Schlafzimmer (bis zu 8 Personen)</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Bedroom 1 &mdash; King bed, en suite</span><span class="lang-de">Schlafzimmer 1 &mdash; Kingsize-Bett, en suite</span></span>
+                    <span class="amenities-item"><span class="lang-en">Bedroom 2 &mdash; King bed</span><span class="lang-de">Schlafzimmer 2 &mdash; Kingsize-Bett</span></span>
+                    <span class="amenities-item"><span class="lang-en">Bedroom 3 &mdash; King bed</span><span class="lang-de">Schlafzimmer 3 &mdash; Kingsize-Bett</span></span>
+                    <span class="amenities-item"><span class="lang-en">Bedroom 4 &mdash; Queen bed, en suite</span><span class="lang-de">Schlafzimmer 4 &mdash; Queensize-Bett, en suite</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">4 Bathrooms</span><span class="lang-de">4 Badezimmer</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Towels provided</span><span class="lang-de">Handt&uuml;cher vorhanden</span></span>
+                    <span class="amenities-item"><span class="lang-en">Toilet</span><span class="lang-de">Toilette</span></span>
+                    <span class="amenities-item"><span class="lang-en">Shower only</span><span class="lang-de">Nur Dusche</span></span>
+                    <span class="amenities-item"><span class="lang-en">Hairdryer</span><span class="lang-de">Haartrockner</span></span>
+                </div>
+            </div>
+
+            <div class="amenities-category">
+                <h4><span class="lang-en">Additional Rooms</span><span class="lang-de">Weitere R&auml;ume</span></h4>
+                <div class="amenities-grid">
+                    <span class="amenities-item"><span class="lang-en">Balcony</span><span class="lang-de">Balkon</span></span>
+                    <span class="amenities-item"><span class="lang-en">Terrace / Patio</span><span class="lang-de">Terrasse / Patio</span></span>
+                    <span class="amenities-item"><span class="lang-en">Dining area (seats 10)</span><span class="lang-de">Essbereich (10 Sitzpl&auml;tze)</span></span>
+                    <span class="amenities-item"><span class="lang-en">Kitchen</span><span class="lang-de">K&uuml;che</span></span>
+                    <span class="amenities-item"><span class="lang-en">Garden</span><span class="lang-de">Garten</span></span>
+                    <span class="amenities-item"><span class="lang-en">Veranda</span><span class="lang-de">Veranda</span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <script>
 (function() {
     // ── Language Toggle ──
@@ -1380,6 +1718,74 @@
                 goTo(Math.min(currentIndex, getMaxIndex()));
             }, 150);
         });
+    });
+
+    // ── Amenities Modal ──
+    var overlay = document.getElementById('amenitiesOverlay');
+    var openBtn = document.getElementById('openAmenities');
+    var closeBtn = document.getElementById('closeAmenities');
+    var lastFocused = null;
+
+    function openModal() {
+        lastFocused = document.activeElement;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+    function closeModal() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (lastFocused) lastFocused.focus();
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (!overlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Tab') {
+            var modal = overlay.querySelector('.amenities-modal');
+            var focusable = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+            var first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
+
+    // ── Rooms & Beds Modal ──
+    var rbOverlay = document.getElementById('roomsBedsOverlay');
+    var rbOpenBtn = document.getElementById('openRoomsBeds');
+    var rbCloseBtn = document.getElementById('closeRoomsBeds');
+    var rbLastFocused = null;
+
+    function openRbModal() {
+        rbLastFocused = document.activeElement;
+        rbOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        rbCloseBtn.focus();
+    }
+    function closeRbModal() {
+        rbOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (rbLastFocused) rbLastFocused.focus();
+    }
+
+    rbOpenBtn.addEventListener('click', openRbModal);
+    rbCloseBtn.addEventListener('click', closeRbModal);
+    rbOverlay.addEventListener('click', function(e) { if (e.target === rbOverlay) closeRbModal(); });
+    document.addEventListener('keydown', function(e) {
+        if (!rbOverlay.classList.contains('active')) return;
+        if (e.key === 'Escape') closeRbModal();
+        if (e.key === 'Tab') {
+            var modal = rbOverlay.querySelector('.amenities-modal');
+            var focusable = modal.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])');
+            var first = focusable[0], last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
     });
 })();
 </script>
