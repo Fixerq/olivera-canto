@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Olivera Canto</title>
+    <meta name="description" content="Privacy Policy and data protection information for Olivera Canto villa website.">
+    <style>
+        /* Self-hosted Google Fonts (GDPR compliant) */
+        @font-face {
+            font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap;
+            src: url(/fonts/playfair-display-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Playfair Display'; font-style: normal; font-weight: 400 700; font-display: swap;
+            src: url(/fonts/playfair-display-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+        @font-face {
+            font-family: 'Source Sans 3'; font-style: normal; font-weight: 300 600; font-display: swap;
+            src: url(/fonts/source-sans-3-latin.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Source Sans 3'; font-style: normal; font-weight: 300 600; font-display: swap;
+            src: url(/fonts/source-sans-3-latin-ext.woff2) format('woff2');
+            unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #F9F6F1; --bg-secondary: #E8DFD1; --terracotta: #C17F59;
+            --navy: #2C3E50; --gold: #D4A853; --text: #3A3A3A; --text-light: #6B6B6B;
+            --white: #FFFFFF;
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Source Sans 3', sans-serif;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body); font-weight: 300; color: var(--text);
+            background: var(--bg-primary); line-height: 1.75; -webkit-font-smoothing: antialiased;
+        }
+
+        /* Nav (simplified for legal pages) */
+        .nav {
+            background: var(--navy); padding: 1rem 3rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo-stack { text-decoration: none; }
+        .nav-logo-name {
+            font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;
+            color: var(--white); display: block; line-height: 1.1; letter-spacing: .02em;
+        }
+        .nav-logo-loc {
+            font-family: var(--font-body); font-size: .65rem; font-weight: 400;
+            letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.6); display: block;
+        }
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        .nav-back {
+            color: rgba(255,255,255,.7); text-decoration: none; font-size: .8rem;
+            letter-spacing: .06em; text-transform: uppercase; transition: color .3s;
+        }
+        .nav-back:hover { color: var(--white); }
+        .lang-toggle { display: flex; align-items: center; gap: .5rem; }
+        .lang-btn {
+            background: none; border: none; cursor: pointer; font-family: var(--font-body);
+            font-size: .78rem; font-weight: 400; letter-spacing: .1em; color: rgba(255,255,255,.55);
+            transition: color .3s;
+        }
+        .lang-btn.active { color: var(--white); font-weight: 500; }
+        .lang-toggle span { color: rgba(255,255,255,.3); font-size: .7rem; }
+
+        /* Content */
+        .legal-content {
+            max-width: 800px; margin: 0 auto; padding: 3rem 2rem 5rem;
+        }
+        .legal-content h1 {
+            font-family: var(--font-heading); font-size: 2rem; font-weight: 600;
+            color: var(--navy); margin-bottom: .5rem;
+        }
+        .legal-content .last-updated {
+            font-size: .85rem; color: var(--text-light); margin-bottom: 2.5rem;
+        }
+        .legal-content h2 {
+            font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600;
+            color: var(--navy); margin-top: 2.5rem; margin-bottom: .8rem;
+            padding-bottom: .4rem; border-bottom: 1px solid var(--bg-secondary);
+        }
+        .legal-content h3 {
+            font-family: var(--font-heading); font-size: 1.05rem; font-weight: 500;
+            color: var(--text); margin-top: 1.5rem; margin-bottom: .5rem;
+        }
+        .legal-content p { margin-bottom: 1rem; font-size: .92rem; }
+        .legal-content ul { margin-bottom: 1rem; padding-left: 1.5rem; }
+        .legal-content li { font-size: .92rem; margin-bottom: .4rem; }
+        .legal-content a { color: var(--terracotta); }
+        .legal-content table {
+            width: 100%; border-collapse: collapse; margin: 1rem 0;
+            font-size: .88rem;
+        }
+        .legal-content th, .legal-content td {
+            text-align: left; padding: .6rem .8rem;
+            border-bottom: 1px solid var(--bg-secondary);
+        }
+        .legal-content th {
+            font-weight: 500; color: var(--navy); background: var(--bg-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy); color: rgba(255,255,255,.5); padding: 2rem 3rem;
+            text-align: center; font-size: .78rem;
+        }
+        .footer a { color: rgba(255,255,255,.4); text-decoration: none; transition: color .3s; }
+        .footer a:hover { color: var(--white); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: .8rem; flex-wrap: wrap; }
+
+        /* Language visibility */
+        .lang-de { display: none !important; }
+        body.de .lang-en { display: none !important; }
+        body.de .lang-de { display: inline !important; }
+        body.de p.lang-de, body.de div.lang-de { display: block !important; }
+        body.de h1.lang-de, body.de h2.lang-de, body.de h3.lang-de { display: block !important; }
+        body.de li.lang-de { display: list-item !important; }
+        body.de span.lang-de { display: inline !important; }
+
+        @media (max-width: 768px) {
+            .nav { padding: .8rem 1.5rem; }
+            .legal-content { padding: 2rem 1.2rem 4rem; }
+            .legal-content h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="/" class="nav-logo-stack">
+        <span class="nav-logo-name">Olivera Canto</span>
+        <span class="nav-logo-loc">Portocolom &middot; Mallorca</span>
+    </a>
+    <div class="nav-right">
+        <a href="/" class="nav-back">&larr; <span class="lang-en">Back to site</span><span class="lang-de">Zur&uuml;ck</span></a>
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span>|</span>
+            <button class="lang-btn" data-lang="de">DE</button>
+        </div>
+    </div>
+</nav>
+
+<div class="legal-content">
+
+    <!-- ENGLISH VERSION -->
+    <div class="lang-en">
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Last updated: March 2026</p>
+
+        <h2>1. Data Controller</h2>
+        <p>Sylvia &amp; Thomas Tillmann<br>
+        [PLACEHOLDER - Full address]<br>
+        Email: <a href="mailto:Info@olivera-canto.de">Info@olivera-canto.de</a></p>
+
+        <h2>2. Overview</h2>
+        <p>We take the protection of your personal data seriously. This privacy policy explains what data we collect when you use our website olivera-canto.de, how we use it, and what rights you have regarding your data. We process personal data in compliance with the EU General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG).</p>
+
+        <h2>3. Hosting</h2>
+        <p>This website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. When you visit our website, Vercel's servers automatically collect and store information in server log files that your browser transmits, including:</p>
+        <ul>
+            <li>IP address (anonymized)</li>
+            <li>Date and time of the request</li>
+            <li>Page visited</li>
+            <li>Browser type and version</li>
+            <li>Operating system</li>
+        </ul>
+        <p>This data is processed on the basis of Art. 6(1)(f) GDPR (legitimate interest in reliable website operation). Vercel is certified under the EU-U.S. Data Privacy Framework.</p>
+
+        <h2>4. Cookies and Local Storage</h2>
+        <p>Our website uses the following storage technologies:</p>
+
+        <table>
+            <thead>
+                <tr><th>Name</th><th>Type</th><th>Purpose</th><th>Duration</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>oc-lang</td><td>localStorage</td><td>Saves your language preference (EN/DE)</td><td>Persistent</td></tr>
+                <tr><td>oc-cookie-consent</td><td>localStorage</td><td>Stores your cookie consent preferences</td><td>Persistent</td></tr>
+                <tr><td>cf_clearance</td><td>Cookie</td><td>Cloudflare Turnstile bot protection (contact form)</td><td>Session</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4.1 Necessary Storage (Always Active)</h3>
+        <p>Language preference and cookie consent storage are strictly necessary for the website to function and do not require your consent (Art. 6(1)(f) GDPR).</p>
+
+        <h3>4.2 Cloudflare Turnstile</h3>
+        <p>Our contact form uses Cloudflare Turnstile for bot protection. This is a service by Cloudflare Inc., 101 Townsend St, San Francisco, CA 94107, USA. Turnstile may set cookies necessary for the security check. This processing is based on our legitimate interest in preventing spam and abuse (Art. 6(1)(f) GDPR). Cloudflare is certified under the EU-U.S. Data Privacy Framework.</p>
+
+        <h3>4.3 Analytics Cookies (With Consent)</h3>
+        <p>If you consent to analytics cookies via our cookie banner, we may use services such as Google Analytics to understand how visitors use our website. These cookies are only set after you give your explicit consent (Art. 6(1)(a) GDPR). You can withdraw your consent at any time via the "Cookie Settings" link in the footer.</p>
+
+        <h2>5. Contact Form</h2>
+        <p>When you use our contact form, we collect the following data:</p>
+        <ul>
+            <li>Name (required)</li>
+            <li>Email address (required)</li>
+            <li>Phone number (optional)</li>
+            <li>Check-in and check-out dates</li>
+            <li>Number of guests</li>
+            <li>Your message</li>
+        </ul>
+        <p>This data is sent via email to Info@olivera-canto.de using the email service Resend (Resend Inc., San Francisco, CA, USA). We use this data solely to respond to your enquiry. The legal basis is Art. 6(1)(b) GDPR (pre-contractual measures). We do not store your form data in a database - it is transmitted by email only.</p>
+
+        <h2>6. Google Drive Embedded Video</h2>
+        <p>Our website may display a video hosted on Google Drive. This content is only loaded when you actively click "Load Video", which prevents automatic data transfer to Google. When you choose to load the video, your IP address and browser data may be transmitted to Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA. This is based on your consent (Art. 6(1)(a) GDPR).</p>
+
+        <h2>7. Your Rights</h2>
+        <p>Under the GDPR, you have the following rights:</p>
+        <ul>
+            <li><strong>Right of access</strong> (Art. 15 GDPR) - You can request information about what personal data we hold about you.</li>
+            <li><strong>Right to rectification</strong> (Art. 16 GDPR) - You can request correction of inaccurate data.</li>
+            <li><strong>Right to erasure</strong> (Art. 17 GDPR) - You can request deletion of your data.</li>
+            <li><strong>Right to restrict processing</strong> (Art. 18 GDPR) - You can request limitation of processing.</li>
+            <li><strong>Right to data portability</strong> (Art. 20 GDPR) - You can request your data in a machine-readable format.</li>
+            <li><strong>Right to object</strong> (Art. 21 GDPR) - You can object to processing based on legitimate interests.</li>
+            <li><strong>Right to withdraw consent</strong> (Art. 7(3) GDPR) - You can withdraw any consent at any time, without affecting the lawfulness of processing carried out before withdrawal.</li>
+        </ul>
+        <p>To exercise these rights, contact us at <a href="mailto:Info@olivera-canto.de">Info@olivera-canto.de</a>.</p>
+
+        <h2>8. Right to Lodge a Complaint</h2>
+        <p>You have the right to lodge a complaint with a supervisory authority if you believe your data is being processed unlawfully. You may contact the data protection authority in the EU member state of your residence, your place of work, or the place of the alleged infringement.</p>
+
+        <h2>9. Data Transfers to Third Countries</h2>
+        <p>Some of our service providers are located in the USA (Vercel, Cloudflare, Resend, Google). These providers participate in the EU-U.S. Data Privacy Framework and/or we have ensured appropriate safeguards through Standard Contractual Clauses (Art. 46(2)(c) GDPR).</p>
+
+        <h2>10. Changes to This Policy</h2>
+        <p>We may update this privacy policy from time to time. The current version is always available on this page.</p>
+    </div>
+
+    <!-- GERMAN VERSION -->
+    <div class="lang-de">
+        <h1>Datenschutzerkl&auml;rung</h1>
+        <p class="last-updated">Letzte Aktualisierung: M&auml;rz 2026</p>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Sylvia &amp; Thomas Tillmann<br>
+        [PLATZHALTER - Vollst&auml;ndige Adresse]<br>
+        E-Mail: <a href="mailto:Info@olivera-canto.de">Info@olivera-canto.de</a></p>
+
+        <h2>2. &Uuml;berblick</h2>
+        <p>Wir nehmen den Schutz Ihrer personenbezogenen Daten ernst. Diese Datenschutzerkl&auml;rung erl&auml;utert, welche Daten wir bei der Nutzung unserer Website olivera-canto.de erheben, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben. Wir verarbeiten personenbezogene Daten in &Uuml;bereinstimmung mit der EU-Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG).</p>
+
+        <h2>3. Hosting</h2>
+        <p>Diese Website wird von Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA gehostet. Beim Besuch unserer Website erfassen die Server von Vercel automatisch Informationen in Server-Logdateien, die Ihr Browser &uuml;bermittelt, darunter:</p>
+        <ul>
+            <li>IP-Adresse (anonymisiert)</li>
+            <li>Datum und Uhrzeit der Anfrage</li>
+            <li>Besuchte Seite</li>
+            <li>Browsertyp und -version</li>
+            <li>Betriebssystem</li>
+        </ul>
+        <p>Diese Daten werden auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am zuverl&auml;ssigen Betrieb der Website) verarbeitet. Vercel ist unter dem EU-U.S. Data Privacy Framework zertifiziert.</p>
+
+        <h2>4. Cookies und lokaler Speicher</h2>
+        <p>Unsere Website verwendet folgende Speichertechnologien:</p>
+
+        <table>
+            <thead>
+                <tr><th>Name</th><th>Typ</th><th>Zweck</th><th>Dauer</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>oc-lang</td><td>localStorage</td><td>Speichert Ihre Spracheinstellung (EN/DE)</td><td>Dauerhaft</td></tr>
+                <tr><td>oc-cookie-consent</td><td>localStorage</td><td>Speichert Ihre Cookie-Einstellungen</td><td>Dauerhaft</td></tr>
+                <tr><td>cf_clearance</td><td>Cookie</td><td>Cloudflare Turnstile Bot-Schutz (Kontaktformular)</td><td>Sitzung</td></tr>
+            </tbody>
+        </table>
+
+        <h3>4.1 Notwendige Speicherung (Immer aktiv)</h3>
+        <p>Die Spracheinstellung und Cookie-Einwilligungsspeicherung sind f&uuml;r die Funktion der Website zwingend erforderlich und bed&uuml;rfen keiner Einwilligung (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+        <h3>4.2 Cloudflare Turnstile</h3>
+        <p>Unser Kontaktformular verwendet Cloudflare Turnstile zum Bot-Schutz. Dies ist ein Dienst von Cloudflare Inc., 101 Townsend St, San Francisco, CA 94107, USA. Turnstile kann Cookies setzen, die f&uuml;r die Sicherheits&uuml;berpr&uuml;fung notwendig sind. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Verhinderung von Spam und Missbrauch (Art. 6 Abs. 1 lit. f DSGVO). Cloudflare ist unter dem EU-U.S. Data Privacy Framework zertifiziert.</p>
+
+        <h3>4.3 Analyse-Cookies (Mit Einwilligung)</h3>
+        <p>Wenn Sie &uuml;ber unser Cookie-Banner den Analyse-Cookies zustimmen, k&ouml;nnen wir Dienste wie Google Analytics verwenden, um zu verstehen, wie Besucher unsere Website nutzen. Diese Cookies werden erst nach Ihrer ausdr&uuml;cklichen Einwilligung gesetzt (Art. 6 Abs. 1 lit. a DSGVO). Sie k&ouml;nnen Ihre Einwilligung jederzeit &uuml;ber den Link &quot;Cookie Settings&quot; in der Fu&szlig;zeile widerrufen.</p>
+
+        <h2>5. Kontaktformular</h2>
+        <p>Wenn Sie unser Kontaktformular nutzen, erheben wir folgende Daten:</p>
+        <ul>
+            <li>Name (erforderlich)</li>
+            <li>E-Mail-Adresse (erforderlich)</li>
+            <li>Telefonnummer (optional)</li>
+            <li>An- und Abreisedatum</li>
+            <li>Anzahl der G&auml;ste</li>
+            <li>Ihre Nachricht</li>
+        </ul>
+        <p>Diese Daten werden per E-Mail an Info@olivera-canto.de &uuml;ber den E-Mail-Dienst Resend (Resend Inc., San Francisco, CA, USA) gesendet. Wir verwenden diese Daten ausschlie&szlig;lich zur Beantwortung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Ma&szlig;nahmen). Wir speichern Ihre Formulardaten nicht in einer Datenbank - sie werden ausschlie&szlig;lich per E-Mail &uuml;bermittelt.</p>
+
+        <h2>6. Eingebettetes Video von Google Drive</h2>
+        <p>Unsere Website kann ein auf Google Drive gehostetes Video anzeigen. Dieser Inhalt wird erst geladen, wenn Sie aktiv auf &quot;Video Laden&quot; klicken, wodurch eine automatische Daten&uuml;bertragung an Google verhindert wird. Wenn Sie das Video laden, k&ouml;nnen Ihre IP-Adresse und Browserdaten an Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA &uuml;bermittelt werden. Dies geschieht auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
+
+        <h2>7. Ihre Rechte</h2>
+        <p>Nach der DSGVO haben Sie folgende Rechte:</p>
+        <ul>
+            <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO) - Sie k&ouml;nnen Auskunft dar&uuml;ber verlangen, welche personenbezogenen Daten wir &uuml;ber Sie gespeichert haben.</li>
+            <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO) - Sie k&ouml;nnen die Korrektur unrichtiger Daten verlangen.</li>
+            <li><strong>Recht auf L&ouml;schung</strong> (Art. 17 DSGVO) - Sie k&ouml;nnen die L&ouml;schung Ihrer Daten verlangen.</li>
+            <li><strong>Recht auf Einschr&auml;nkung der Verarbeitung</strong> (Art. 18 DSGVO) - Sie k&ouml;nnen die Einschr&auml;nkung der Verarbeitung verlangen.</li>
+            <li><strong>Recht auf Daten&uuml;bertragbarkeit</strong> (Art. 20 DSGVO) - Sie k&ouml;nnen Ihre Daten in einem maschinenlesbaren Format anfordern.</li>
+            <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO) - Sie k&ouml;nnen der Verarbeitung auf Grundlage berechtigter Interessen widersprechen.</li>
+            <li><strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO) - Sie k&ouml;nnen eine erteilte Einwilligung jederzeit widerrufen, ohne dass die Rechtm&auml;&szlig;igkeit der bis zum Widerruf erfolgten Verarbeitung ber&uuml;hrt wird.</li>
+        </ul>
+        <p>Um diese Rechte auszu&uuml;ben, kontaktieren Sie uns unter <a href="mailto:Info@olivera-canto.de">Info@olivera-canto.de</a>.</p>
+
+        <h2>8. Beschwerderecht</h2>
+        <p>Sie haben das Recht, sich bei einer Aufsichtsbeh&ouml;rde zu beschweren, wenn Sie der Ansicht sind, dass Ihre Daten rechtswidrig verarbeitet werden. Sie k&ouml;nnen sich an die Datenschutzbeh&ouml;rde in dem EU-Mitgliedstaat Ihres Wohnsitzes, Ihres Arbeitsplatzes oder des Ortes des mutma&szlig;lichen Versto&szlig;es wenden.</p>
+
+        <h2>9. Daten&uuml;bermittlung in Drittl&auml;nder</h2>
+        <p>Einige unserer Dienstleister befinden sich in den USA (Vercel, Cloudflare, Resend, Google). Diese Anbieter nehmen am EU-U.S. Data Privacy Framework teil und/oder wir haben geeignete Garantien durch Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) sichergestellt.</p>
+
+        <h2>10. &Auml;nderungen dieser Erkl&auml;rung</h2>
+        <p>Wir k&ouml;nnen diese Datenschutzerkl&auml;rung von Zeit zu Zeit aktualisieren. Die aktuelle Fassung ist stets auf dieser Seite verf&uuml;gbar.</p>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="/"><span class="lang-en">Home</span><span class="lang-de">Startseite</span></a>
+        <a href="/datenschutz.html"><span class="lang-en">Privacy Policy</span><span class="lang-de">Datenschutz</span></a>
+    </div>
+    <span>&copy; 2026 Olivera Canto. <span class="lang-en">All rights reserved.</span><span class="lang-de">Alle Rechte vorbehalten.</span></span>
+</footer>
+
+<script>
+(function() {
+    var langBtns = document.querySelectorAll('.lang-btn');
+    var savedLang = localStorage.getItem('oc-lang') || 'en';
+
+    function setLang(lang) {
+        document.body.classList.toggle('de', lang === 'de');
+        langBtns.forEach(function(b) { b.classList.toggle('active', b.dataset.lang === lang); });
+        localStorage.setItem('oc-lang', lang);
+        document.documentElement.lang = lang;
+    }
+    setLang(savedLang);
+    langBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() { setLang(btn.dataset.lang); });
+    });
+})();
+</script>
+</body>
+</html>
