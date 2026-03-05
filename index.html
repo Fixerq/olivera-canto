@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olivera Canto | Luxury Villa in Portocolom, Mallorca</title>
-    <meta name="description" content="Exclusive 4-bedroom luxury villa with private pool and 360° rooftop terrace in Portocolom, Mallorca. ETV/12422">
+    <meta name="description" content="Luxury 4-bedroom villa with private pool, 360° rooftop terrace and sea views in Portocolom, Mallorca. Book your exclusive Mediterranean retreat - ETV/12422.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.olivera-canto.de/">
+    <link rel="alternate" hreflang="en" href="https://www.olivera-canto.de/">
+    <link rel="alternate" hreflang="de" href="https://www.olivera-canto.de/">
+    <link rel="alternate" hreflang="x-default" href="https://www.olivera-canto.de/">
+
+    <!-- Preload hero background image (LCP element) -->
+    <link rel="preload" as="image" href="/images/hero-evening.jpg" fetchpriority="high">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Olivera Canto - Luxury Villa in Portocolom, Mallorca">
+    <meta property="og:description" content="Luxury 4-bedroom villa with private pool, 360° rooftop terrace and sea views in Portocolom, Mallorca. Book your exclusive Mediterranean retreat.">
+    <meta property="og:url" content="https://www.olivera-canto.de/">
+    <meta property="og:image" content="https://www.olivera-canto.de/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Olivera Canto">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:locale:alternate" content="de_DE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Olivera Canto - Luxury Villa in Portocolom, Mallorca">
+    <meta name="twitter:description" content="Luxury 4-bedroom villa with private pool, 360° rooftop terrace and sea views in Portocolom, Mallorca.">
+    <meta name="twitter:image" content="https://www.olivera-canto.de/images/og-image.jpg">
+
     <style>
         /* Self-hosted Google Fonts (GDPR compliant - no external requests) */
         @font-face {
@@ -1028,6 +1055,73 @@
         }
     </style>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Olivera Canto",
+        "url": "https://www.olivera-canto.de",
+        "logo": "https://www.olivera-canto.de/images/og-image.jpg",
+        "email": "Info@olivera-canto.de",
+        "description": "Luxury holiday villa rental in Portocolom, Mallorca."
+    }
+    </script>
+
+    <!-- Structured Data: VacationRental -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VacationRental",
+        "name": "Olivera Canto - Luxury Villa in Portocolom",
+        "description": "Exclusive 4-bedroom luxury villa with private saltwater pool, 360-degree rooftop terrace and Mediterranean sea views in Portocolom, Mallorca.",
+        "url": "https://www.olivera-canto.de",
+        "image": [
+            "https://www.olivera-canto.de/images/hero-evening.jpg",
+            "https://www.olivera-canto.de/images/morning-villa.jpg",
+            "https://www.olivera-canto.de/images/pool-swimming.jpg",
+            "https://www.olivera-canto.de/images/rooftop-views.jpg"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Portocolom",
+            "addressRegion": "Mallorca",
+            "addressCountry": "ES"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.4167,
+            "longitude": 3.2667
+        },
+        "identifier": {
+            "@type": "PropertyValue",
+            "name": "Tourism License",
+            "value": "ETV/12422"
+        },
+        "numberOfBedrooms": 4,
+        "numberOfBathroomsTotal": 3,
+        "occupancy": {
+            "@type": "QuantitativeValue",
+            "maxValue": 8
+        },
+        "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Private Saltwater Pool", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "360° Rooftop Terrace", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "BBQ Area", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Fireplace", "value": true },
+            { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true }
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "ratingCount": "28"
+        }
+    }
+    </script>
 </head>
 <body>
 
@@ -1107,10 +1201,10 @@
     <div class="container">
         <div class="story-grid">
             <div class="story-images fade-in">
-                <img src="images/morning-villa.jpg" alt="Villa Olivera Canto morning exterior with pool" loading="lazy">
-                <img src="images/rooftop-views.jpg" alt="360° rooftop terrace views over Portocolom" loading="lazy">
-                <img src="images/pool-swimming.jpg" alt="Private saltwater swimming pool" loading="lazy">
-                <img src="images/kitchen.jpg" alt="Fully equipped modern kitchen" loading="lazy">
+                <img src="images/morning-villa.jpg" alt="Villa Olivera Canto morning exterior with pool" loading="eager" fetchpriority="high" width="1600" height="1067">
+                <img src="images/rooftop-views.jpg" alt="360° rooftop terrace views over Portocolom" loading="lazy" width="1600" height="1067">
+                <img src="images/pool-swimming.jpg" alt="Private saltwater swimming pool" loading="lazy" width="1600" height="1067">
+                <img src="images/kitchen.jpg" alt="Fully equipped modern kitchen" loading="lazy" width="1600" height="1067">
             </div>
             <div class="story-text fade-in">
                 <p class="section-label"><span class="lang-en">About Us</span><span class="lang-de">&Uuml;ber uns</span></p>
@@ -1199,58 +1293,58 @@
         </div>
         <div class="masonry fade-in">
             <div class="masonry-item">
-                <img src="images/pool-swimming.jpg" alt="Pool and sun loungers in the morning sun" class="masonry-img" loading="lazy">
+                <img src="images/pool-swimming.jpg" alt="Pool and sun loungers in the morning sun" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/master-bedroom.jpg" alt="Master bedroom" class="masonry-img" loading="lazy">
+                <img src="images/master-bedroom.jpg" alt="Master bedroom" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/living-area.jpg" alt="Open plan living area" class="masonry-img" loading="lazy">
+                <img src="images/living-area.jpg" alt="Open plan living area" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/bathroom-upstairs.jpg" alt="Bathroom upstairs" class="masonry-img" loading="lazy">
+                <img src="images/bathroom-upstairs.jpg" alt="Bathroom upstairs" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/kitchen.jpg" alt="Modern kitchen" class="masonry-img" loading="lazy">
+                <img src="images/kitchen.jpg" alt="Modern kitchen" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/rooftop.jpg" alt="360° rooftop terrace" class="masonry-img" loading="lazy">
+                <img src="images/rooftop.jpg" alt="360° rooftop terrace" class="masonry-img" loading="lazy" width="1600" height="1200">
             </div>
             <div class="masonry-item">
-                <img src="images/evening-2.jpg" alt="Villa Olivera Canto at dusk" class="masonry-img" loading="lazy">
+                <img src="images/evening-2.jpg" alt="Villa Olivera Canto at dusk" class="masonry-img" loading="lazy" width="1600" height="1200">
             </div>
             <div class="masonry-item">
-                <img src="images/rooftop-dining.jpg" alt="Dining on the rooftop with 360° views" class="masonry-img" loading="lazy">
+                <img src="images/rooftop-dining.jpg" alt="Dining on the rooftop with 360° views" class="masonry-img" loading="lazy" width="1600" height="900">
             </div>
             <div class="masonry-item">
-                <img src="images/entrance.jpg" alt="Welcome entrance" class="masonry-img" loading="lazy">
+                <img src="images/entrance.jpg" alt="Welcome entrance" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/bedroom-2.jpg" alt="Bedroom 2 upstairs" class="masonry-img" loading="lazy">
+                <img src="images/bedroom-2.jpg" alt="Bedroom 2 upstairs" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/bbq-pool.jpg" alt="BBQ and poolside dining" class="masonry-img" loading="lazy">
+                <img src="images/bbq-pool.jpg" alt="BBQ and poolside dining" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/fireplace.jpg" alt="Cosy fireplace area" class="masonry-img" loading="lazy">
+                <img src="images/fireplace.jpg" alt="Cosy fireplace area" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/bedroom-3.jpg" alt="Bedroom 3 upstairs" class="masonry-img" loading="lazy">
+                <img src="images/bedroom-3.jpg" alt="Bedroom 3 upstairs" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/master-ensuite.jpg" alt="Master bedroom en suite bathroom" class="masonry-img" loading="lazy">
+                <img src="images/master-ensuite.jpg" alt="Master bedroom en suite bathroom" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
-                <img src="images/harbour-views.jpg" alt="Views of the harbour, sea and old town from the rooftop" class="masonry-img" loading="lazy">
+                <img src="images/harbour-views.jpg" alt="Views of the harbour, sea and old town from the rooftop" class="masonry-img" loading="lazy" width="1600" height="900">
             </div>
             <div class="masonry-item">
-                <img src="images/breakfast-pool.jpg" alt="Breakfast by the pool" class="masonry-img" loading="lazy">
+                <img src="images/breakfast-pool.jpg" alt="Breakfast by the pool" class="masonry-img" loading="lazy" width="1600" height="900">
             </div>
             <div class="masonry-item">
-                <img src="images/solar-shower.jpg" alt="Solar outdoor shower by the pool" class="masonry-img" loading="lazy">
+                <img src="images/solar-shower.jpg" alt="Solar outdoor shower by the pool" class="masonry-img" loading="lazy" width="1600" height="1200">
             </div>
             <div class="masonry-item">
-                <img src="images/olive-tree.jpg" alt="The ancient olive tree - Namensgeber Olivera Canto" class="masonry-img" loading="lazy">
+                <img src="images/olive-tree.jpg" alt="The ancient olive tree - Namensgeber Olivera Canto" class="masonry-img" loading="lazy" width="1067" height="1600">
             </div>
         </div>
     </div>
@@ -1349,12 +1443,12 @@
             <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">&#8249;</button>
             <div class="carousel-track-wrapper">
                 <div class="carousel-track">
-                    <div class="carousel-slide"><img src="images/portocolom-bay.jpg" alt="Portocolom natural harbour bay" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="images/cala-marcal.jpg" alt="Cala Marçal beach" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-lighthouse.jpg" alt="Portocolom lighthouse" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-boats.jpg" alt="Fishing boats in Portocolom harbour" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-town.jpg" alt="Portocolom town waterfront" loading="lazy"></div>
-                    <div class="carousel-slide"><img src="images/sarenal-beach.jpg" alt="S'Arenal beach near Portocolom" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="images/portocolom-bay.jpg" alt="Portocolom natural harbour bay" loading="lazy" width="1600" height="1067"></div>
+                    <div class="carousel-slide"><img src="images/cala-marcal.jpg" alt="Cala Marçal beach" loading="lazy" width="1600" height="1067"></div>
+                    <div class="carousel-slide"><img src="images/portocolom-lighthouse.jpg" alt="Portocolom lighthouse" loading="lazy" width="1067" height="1600"></div>
+                    <div class="carousel-slide"><img src="images/portocolom-boats.jpg" alt="Fishing boats in Portocolom harbour" loading="lazy" width="1600" height="1067"></div>
+                    <div class="carousel-slide"><img src="images/portocolom-town.jpg" alt="Portocolom town waterfront" loading="lazy" width="1600" height="1067"></div>
+                    <div class="carousel-slide"><img src="images/sarenal-beach.jpg" alt="S'Arenal beach near Portocolom" loading="lazy" width="1600" height="1067"></div>
                 </div>
             </div>
             <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8250;</button>
