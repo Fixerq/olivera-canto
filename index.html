@@ -1866,6 +1866,22 @@
     var status = document.getElementById('form-status');
     if (!form) return;
 
+    var checkinInput = form.querySelector('#checkin');
+    var checkoutInput = form.querySelector('#checkout');
+    var today = new Date().toISOString().split('T')[0];
+    checkinInput.setAttribute('min', today);
+    checkoutInput.setAttribute('min', today);
+    checkinInput.addEventListener('change', function() {
+        if (checkinInput.value) {
+            var next = new Date(checkinInput.value);
+            next.setDate(next.getDate() + 1);
+            checkoutInput.setAttribute('min', next.toISOString().split('T')[0]);
+            if (checkoutInput.value && checkoutInput.value <= checkinInput.value) {
+                checkoutInput.value = '';
+            }
+        }
+    });
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         btn.disabled = true;
@@ -1873,6 +1889,18 @@
         status.style.display = 'none';
 
         var isDE = document.body.classList.contains('de');
+        var checkinVal = form.querySelector('#checkin').value;
+        var checkoutVal = form.querySelector('#checkout').value;
+        if (checkinVal && checkoutVal && checkoutVal <= checkinVal) {
+            status.style.color = '#c62828';
+            status.textContent = isDE
+                ? 'Das Abreisedatum muss nach dem Anreisedatum liegen.'
+                : 'Check-out date must be after check-in date.';
+            status.style.display = 'block';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            return;
+        }
         var turnstileResponse = form.querySelector('[name="cf-turnstile-response"]');
         var token = turnstileResponse ? turnstileResponse.value : '';
         if (!token) {
