@@ -2,3 +2,6 @@
 *.png
 test-image.jpg
 .vercel
+node_modules/
+.env
+.env.local

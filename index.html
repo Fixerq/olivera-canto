@@ -857,6 +857,7 @@
         body.de p.lang-de, body.de div.lang-de { display: block !important; }
         body.de h1.lang-de, body.de h2.lang-de, body.de h3.lang-de, body.de h4.lang-de { display: block !important; }
     </style>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -1368,7 +1369,7 @@
                     <span class="lang-de">Bitte beachten Sie: Dies ist ein Nichtraucher-Objekt und Haustiere sind nicht gestattet.</span>
                 </p>
             </div>
-            <form class="contact-form fade-in" action="mailto:Info@olivera-canto.de" method="post" enctype="text/plain">
+            <form class="contact-form fade-in" id="contact-form">
                 <div class="form-group">
                     <label for="name"><span class="lang-en">Full Name</span><span class="lang-de">Vollst&auml;ndiger Name</span></label>
                     <input type="text" id="name" name="name" required>
@@ -1406,8 +1407,12 @@
                     <label for="message"><span class="lang-en">Your Message</span><span class="lang-de">Ihre Nachricht</span></label>
                     <textarea id="message" name="message" rows="5"></textarea>
                 </div>
+                <div class="form-group full">
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACmuGJ0wQPVKTimM" data-theme="light"></div>
+                </div>
                 <div class="form-submit">
-                    <button type="submit" class="btn-primary"><span class="lang-en">Send Enquiry</span><span class="lang-de">Anfrage Senden</span></button>
+                    <button type="submit" class="btn-primary" id="contact-submit"><span class="lang-en">Send Enquiry</span><span class="lang-de">Anfrage Senden</span></button>
+                    <p id="form-status" style="margin-top:.8rem;font-size:.9rem;display:none;"></p>
                 </div>
             </form>
         </div>
@@ -1852,6 +1857,79 @@
     lbClose.addEventListener('click', closeLightbox);
     lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLightbox(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lbOverlay.classList.contains('active')) closeLightbox(); });
+})();
+
+// ── Contact Form Submission ──
+(function() {
+    var form = document.getElementById('contact-form');
+    var btn = document.getElementById('contact-submit');
+    var status = document.getElementById('form-status');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.style.opacity = '.6';
+        status.style.display = 'none';
+
+        var isDE = document.body.classList.contains('de');
+        var turnstileResponse = form.querySelector('[name="cf-turnstile-response"]');
+        var token = turnstileResponse ? turnstileResponse.value : '';
+        if (!token) {
+            status.style.color = '#c62828';
+            status.textContent = isDE
+                ? 'Bitte die Sicherheitsprüfung abschließen.'
+                : 'Please complete the security check.';
+            status.style.display = 'block';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            return;
+        }
+        var data = {
+            name: form.querySelector('#name').value,
+            email: form.querySelector('#email').value,
+            checkin: form.querySelector('#checkin').value,
+            checkout: form.querySelector('#checkout').value,
+            guests: form.querySelector('#guests').value,
+            phone: form.querySelector('#phone').value,
+            message: form.querySelector('#message').value,
+            turnstileToken: token
+        };
+
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(function(res) { return res.json().then(function(d) { return { ok: res.ok, data: d }; }); })
+        .then(function(result) {
+            if (result.ok) {
+                status.style.color = '#2e7d32';
+                status.textContent = isDE
+                    ? 'Vielen Dank! Ihre Anfrage wurde gesendet.'
+                    : 'Thank you! Your enquiry has been sent.';
+                form.reset();
+                if (window.turnstile) turnstile.reset();
+            } else {
+                status.style.color = '#c62828';
+                status.textContent = isDE
+                    ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.'
+                    : (result.data.error || 'Something went wrong. Please try again.');
+            }
+            status.style.display = 'block';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        })
+        .catch(function() {
+            status.style.color = '#c62828';
+            status.textContent = isDE
+                ? 'Fehler beim Senden. Bitte versuchen Sie es erneut.'
+                : 'Something went wrong. Please try again.';
+            status.style.display = 'block';
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        });
+    });
 })();
 </script>
 </body>
