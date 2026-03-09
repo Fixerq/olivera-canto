@@ -687,17 +687,16 @@
         }
 
         /* ── Area Photos Carousel ── */
-        .area-photos-carousel .carousel-slide {
-            min-width: calc(100% / 3);
-            padding: 0 .5rem;
-            box-sizing: border-box;
+        .area-photos-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem;
+            margin-top: 2rem;
         }
-        .area-photos-carousel .carousel-slide img {
-            width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
-            border-radius: 4px;
+        .area-photos-grid img {
+            width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+            border-radius: 4px; cursor: pointer;
             transition: transform .4s, box-shadow .4s;
         }
-        .area-photos-carousel .carousel-slide img:hover {
+        .area-photos-grid img:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 30px rgba(0,0,0,.15);
         }
@@ -928,7 +927,7 @@
             .btn-outline { margin-left: 0; }
             .masonry { columns: 1; }
             .tab-grid { grid-template-columns: 1fr; }
-            .area-photos-carousel .carousel-slide { min-width: 50%; }
+            .area-photos-grid { grid-template-columns: repeat(2, 1fr); }
             .reviews-carousel .carousel-slide { min-width: 100%; }
             .carousel-arrow { width: 40px; height: 40px; font-size: .95rem; }
             .carousel-arrow--prev { left: -8px; }
@@ -1315,6 +1314,9 @@
                 <img src="images/kitchen.jpg" alt="Modern kitchen" class="masonry-img" loading="lazy" width="1600" height="1067">
             </div>
             <div class="masonry-item">
+                <img src="images/olive-tree.jpg" alt="The ancient olive tree - Namensgeber Olivera Canto" class="masonry-img" loading="lazy" width="1067" height="1600">
+            </div>
+            <div class="masonry-item">
                 <img src="images/rooftop.jpg" alt="360° rooftop terrace" class="masonry-img" loading="lazy" width="1600" height="1200">
             </div>
             <div class="masonry-item">
@@ -1349,9 +1351,6 @@
             </div>
             <div class="masonry-item">
                 <img src="images/solar-shower.jpg" alt="Solar outdoor shower by the pool" class="masonry-img" loading="lazy" width="1600" height="1200">
-            </div>
-            <div class="masonry-item">
-                <img src="images/olive-tree.jpg" alt="The ancient olive tree - Namensgeber Olivera Canto" class="masonry-img" loading="lazy" width="1067" height="1600">
             </div>
         </div>
     </div>
@@ -1446,20 +1445,13 @@
             </div>
         </div>
 
-        <div class="carousel area-photos-carousel fade-in" data-visible="3">
-            <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous">&#8249;</button>
-            <div class="carousel-track-wrapper">
-                <div class="carousel-track">
-                    <div class="carousel-slide"><img src="images/portocolom-bay.jpg" alt="Portocolom natural harbour bay" loading="lazy" width="1600" height="1067"></div>
-                    <div class="carousel-slide"><img src="images/cala-marcal.jpg" alt="Cala Marçal beach" loading="lazy" width="1600" height="1067"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-lighthouse.jpg" alt="Portocolom lighthouse" loading="lazy" width="1067" height="1600"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-boats.jpg" alt="Fishing boats in Portocolom harbour" loading="lazy" width="1600" height="1067"></div>
-                    <div class="carousel-slide"><img src="images/portocolom-town.jpg" alt="Portocolom town waterfront" loading="lazy" width="1600" height="1067"></div>
-                    <div class="carousel-slide"><img src="images/sarenal-beach.jpg" alt="S'Arenal beach near Portocolom" loading="lazy" width="1600" height="1067"></div>
-                </div>
-            </div>
-            <button class="carousel-arrow carousel-arrow--next" aria-label="Next">&#8250;</button>
-            <div class="carousel-dots"></div>
+        <div class="area-photos-grid fade-in">
+            <img src="images/portocolom-bay.jpg" alt="Portocolom natural harbour bay" loading="lazy" width="1600" height="1067">
+            <img src="images/cala-marcal.jpg" alt="Cala Marçal beach" loading="lazy" width="1600" height="1067">
+            <img src="images/portocolom-lighthouse.jpg" alt="Portocolom lighthouse" loading="lazy" width="1067" height="1600">
+            <img src="images/portocolom-boats.jpg" alt="Fishing boats in Portocolom harbour" loading="lazy" width="1600" height="1067">
+            <img src="images/portocolom-town.jpg" alt="Portocolom town waterfront" loading="lazy" width="1600" height="1067">
+            <img src="images/sarenal-beach.jpg" alt="S'Arenal beach near Portocolom" loading="lazy" width="1600" height="1067">
         </div>
     </div>
 </section>
