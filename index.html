@@ -109,7 +109,7 @@
             --gold: #D4A853;
             --olive: #6B7B5E;
             --text: #3A3A3A;
-            --text-light: #6B6B6B;
+            --text-light: #4A4A4A;
             --white: #FFFFFF;
             --font-heading: 'Playfair Display', Georgia, serif;
             --font-body: 'Source Sans 3', sans-serif;
@@ -338,10 +338,10 @@
             display: flex; flex-direction: column; gap: 3rem;
         }
         .story-images {
-            display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
         }
         .story-images img {
-            width: 100%; aspect-ratio: 4/3; object-fit: cover;
+            width: 100%; aspect-ratio: 16/9; object-fit: cover;
             border: 4px solid var(--white);
             box-shadow: 0 8px 28px rgba(44,62,80,.1);
             border-radius: 4px; cursor: pointer;
@@ -562,7 +562,7 @@
         }
         .masonry-item:hover { box-shadow: 0 8px 30px rgba(0,0,0,.12); }
         .masonry-img {
-            width: 100%; display: block;
+            width: 100%; display: block; cursor: pointer;
             transition: transform .6s cubic-bezier(.22,.61,.36,1);
         }
         .masonry-item:hover .masonry-img { transform: scale(1.04); }
@@ -877,11 +877,13 @@
         }
 
         /* ── ANIMATIONS ── */
+        @keyframes fadeFallback { to { opacity: 1; transform: translateY(0); } }
         .fade-in {
             opacity: 0; transform: translateY(20px);
             transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1);
+            animation: fadeFallback .7s ease-out 3s forwards;
         }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in.visible { opacity: 1; transform: translateY(0); animation: none; }
 
         /* ── REDUCED MOTION ── */
         @media (prefers-reduced-motion: reduce) {
@@ -934,7 +936,7 @@
             .contact-form { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .footer-bottom { flex-direction: column; gap: .5rem; text-align: center; }
-            .story-images { grid-template-columns: repeat(2, 1fr); }
+            .story-images { grid-template-columns: 1fr; }
             .story-features { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -1139,7 +1141,7 @@
         <span class="nav-logo-loc">Portocolom &middot; Mallorca</span>
     </a>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#story"><span class="lang-en">Our Story</span><span class="lang-de">Unsere Geschichte</span></a></li>
+        <li><a href="#story"><span class="lang-en">Our Story</span><span class="lang-de">Die Villa</span></a></li>
         <li><a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-de">Galerie</span></a></li>
         <li><a href="#area"><span class="lang-en">Discover</span><span class="lang-de">Entdecken</span></a></li>
         <li><a href="#rates"><span class="lang-en">Rates</span><span class="lang-de">Preise</span></a></li>
@@ -1147,9 +1149,9 @@
         <li><a href="#contact" class="nav-cta"><span class="lang-en">Enquire Now</span><span class="lang-de">Jetzt Anfragen</span></a></li>
         <li>
             <div class="lang-toggle">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <span>|</span>
                 <button class="lang-btn" data-lang="de">DE</button>
+                <span>|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
             </div>
         </li>
     </ul>
@@ -1165,12 +1167,12 @@
     <div class="hero-content fade-in">
         <p class="hero-sub">Portocolom &middot; Mallorca</p>
         <h1 class="lang-en">An Exclusive<br>Mediterranean Retreat</h1>
-        <h1 class="lang-de">Ein Exklusives<br>Mediterranes Refugium</h1>
+        <h1 class="lang-de">Ein exklusiver<br>Mediterraner Zufluchtsort</h1>
         <p class="hero-tagline lang-en">Named after the ancient olive tree that graces our garden</p>
         <p class="hero-tagline lang-de">Benannt nach dem alten Olivenbaum in unserem Garten</p>
         <div class="hero-btns">
             <a href="#contact" class="btn-primary"><span class="lang-en">Reserve Your Stay</span><span class="lang-de">Aufenthalt Reservieren</span></a>
-            <a href="#story" class="btn-outline"><span class="lang-en">Our Story</span><span class="lang-de">Unsere Geschichte</span></a>
+            <a href="#story" class="btn-outline"><span class="lang-en">Our Story</span><span class="lang-de">Die Villa</span></a>
         </div>
     </div>
 </section>
@@ -1210,11 +1212,9 @@
             <div class="story-images fade-in">
                 <img src="images/morning-villa.jpg" alt="Villa Olivera Canto morning exterior with pool" loading="eager" fetchpriority="high" width="1600" height="1067">
                 <img src="images/rooftop-views.jpg" alt="360° rooftop terrace views over Portocolom" loading="lazy" width="1600" height="1067">
-                <img src="images/pool-swimming.jpg" alt="Private saltwater swimming pool" loading="lazy" width="1600" height="1067">
-                <img src="images/kitchen.jpg" alt="Fully equipped modern kitchen" loading="lazy" width="1600" height="1067">
             </div>
             <div class="story-text fade-in">
-                <p class="section-label"><span class="lang-en">About Us</span><span class="lang-de">&Uuml;ber uns</span></p>
+                <p class="section-label"><span class="lang-en">About Us</span><span class="lang-de">Die Villa</span></p>
                 <h2 class="section-title">Olivera Canto</h2>
                 <p class="lang-en">Villa Olivera Canto impresses with its location, views and high-quality materials in a favoured area of Portocolom. Recently redesigned, it combines modern and Mediterranean elements.</p>
                 <p class="lang-en">The highlight of this beautiful villa is the stunning rooftop terrace with outdoor kitchen (dishwasher, stove, grill, fridge), multiple seating and lounging areas, and a magnificent 360&deg; panoramic view of the mountains, the sea and the natural harbour of Portocolom. Enjoying a BBQ in the evening with a sundowner on the rooftop terrace - what could be better.</p>
@@ -1487,29 +1487,22 @@
                         <tr>
                             <td>
                                 <strong><span class="lang-en">High Season</span><span class="lang-de">Hochsaison</span></strong>
-                                <span class="months-cell"><br>30 Jun &ndash; 20 Sep 2026</span>
+                                <span class="months-cell"><br><span class="lang-en">All dates except Low Season</span><span class="lang-de">Alle Termine au&szlig;er Nebensaison</span></span>
                             </td>
-                            <td>&euro;599</td>
+                            <td>&euro;645</td>
                         </tr>
                         <tr>
                             <td>
                                 <strong><span class="lang-en">Low Season</span><span class="lang-de">Nebensaison</span></strong>
-                                <span class="months-cell"><br>11 Oct &ndash; 15 Nov 2026</span>
+                                <span class="months-cell"><br>21 Sep &ndash; 15 Nov</span>
                             </td>
                             <td>&euro;499</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong><span class="lang-en">Standard Rate</span><span class="lang-de">Standardpreis</span></strong>
-                                <span class="months-cell"><br><span class="lang-en">Other dates</span><span class="lang-de">Andere Termine</span></span>
-                            </td>
-                            <td>&euro;645</td>
                         </tr>
                     </tbody>
                 </table>
                 <div class="terms-box">
                     <h5><span class="lang-en">Discounts</span><span class="lang-de">Rabatte</span></h5>
-                    <p><span class="lang-en">High Season: 5% off for 10+ nights</span><span class="lang-de">Hochsaison: 5% Rabatt ab 10 N&auml;chten</span></p>
+                    <p><span class="lang-en">5% off for 10+ nights</span><span class="lang-de">5% Rabatt ab 10 N&auml;chten</span></p>
                     <p><span class="lang-en">Low Season: 10% off for 10+ nights</span><span class="lang-de">Nebensaison: 10% Rabatt ab 10 N&auml;chten</span></p>
                 </div>
             </div>
@@ -1722,7 +1715,7 @@
         <div>
             <h4><span class="lang-en">Property</span><span class="lang-de">Unterkunft</span></h4>
             <ul>
-                <li><a href="#story"><span class="lang-en">Our Story</span><span class="lang-de">Unsere Geschichte</span></a></li>
+                <li><a href="#story"><span class="lang-en">Our Story</span><span class="lang-de">Die Villa</span></a></li>
                 <li><a href="#gallery"><span class="lang-en">Gallery</span><span class="lang-de">Galerie</span></a></li>
             </ul>
         </div>
@@ -1930,7 +1923,7 @@
 (function() {
     // ── Language Toggle ──
     const langBtns = document.querySelectorAll('.lang-btn');
-    const savedLang = localStorage.getItem('oc-lang') || 'en';
+    const savedLang = localStorage.getItem('oc-lang') || 'de';
 
     function setLang(lang) {
         document.body.classList.toggle('de', lang === 'de');
@@ -2136,12 +2129,14 @@
     var lbImg = lbOverlay.querySelector('img');
     var lbClose = lbOverlay.querySelector('.img-lightbox-close');
 
-    document.querySelector('.story-images').addEventListener('click', function(e) {
-        if (e.target.tagName !== 'IMG') return;
-        lbImg.src = e.target.src;
-        lbImg.alt = e.target.alt;
-        lbOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+    document.querySelectorAll('.story-images, .masonry').forEach(function(container) {
+        container.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'IMG') return;
+            lbImg.src = e.target.src;
+            lbImg.alt = e.target.alt;
+            lbOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
     });
     function closeLightbox() {
         lbOverlay.classList.remove('active');
